@@ -1,0 +1,109 @@
+:: StoryTitle
+Gabby‘s Restaurants
+
+
+:: StoryData
+{
+  "ifid": "8E57BCFC-B751-4CDD-8E59-5BE1E00756BE",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "Start - 01 Gabby's avenger",
+  "zoom": 1
+}
+
+
+:: Freindship {"position":"425,525","size":"100,100"}
+[[Gabby]]
+
+
+:: Gabby {"position":"425,675","size":"100,100"}
+
+
+
+:: Start - 01 Gabby's avenger {"position":"1075,525","size":"100,100"}
+2.0
+12月7日，晴天，晚上九点
+
+Gabby: ”那是一个悠长的故事，我本是No.2452的猫猫王，身负天命，统帅无尽的罐罐和小鱼干。但却为奸臣所害：在冰天雪地中，臣子伴我出游时，擅自回宫，占领了我的王位。那暗影诡谲的宫廷，我实在不太愿意再着。但是，罐头已然蒙尘，小鱼干亦已冰寒；孤独的鱼儿，失落的鸟儿，在等待他们的王归来。我，Gabby，将再度连结众猫，向邪恶的人类发起反击！“
+<<linkreplace "听懂掌声！">>
+【满意听到掌声，舔了舔手，自信的抬起头】
+<<timed 1s>>
+Melor崇拜的看着Gabby:"太酷了!我也要加入！"
+"答应你的请求“Gabby说完，又叼起了一颗小鱼干，一口吞下后接着说，”那么你，能为我的费用复仇做些什么呢？“
+Melor歪头思考了一下，”A second!" 她大叫一身，突然掉头跑掉了。
+
+Gabby要：
+[[等待Melor回来|Start - 02.1 Melor Back]]
+[[开溜！|Start - 02.1 Alice catch you]]
+
+<</timed>>
+<</linkreplace>>
+
+
+:: Start - 02.1 Alice catch you {"position":"950,650","size":"100,100"}
+很快，当你还没跑出去两步，你就被Alice抓住了
+Melor探出头说：“你要去哪里呀！别走啊，我们老大可以帮助你复仇的。”
+“什么老大？”
+“Juice帮！你听说过吗，我们老大肯定能帮上你的！！”
+
+[[Juice帮？|Start - 03 Alice here]]
+
+
+:: Start - 02.1 Melor Back {"position":"1200,650","size":"100,100"}
+很快，Gabby就带着一只通体黑色的猫猫来了。
+“这是Alice!"她介绍到，”Juice帮的老大。“
+
+[[Juice帮？|Start - 03 Alice here]]
+
+
+
+:: Start - 03 Alice here {"position":"1075,775","size":"100,100"}
+Alice轻哼了一声。尾巴一下一下的打着地面。
+”听说你想复仇，我想问问我们Juice帮是否够格？“
+Gabby一愣，不自觉的连连点头。真是太够了。
+“哈，异想天开。骗了我Juice帮小弟那么多小鱼干，你还想我帮你？”
+
+Gabby:【心虚地眨了眨眼】自愿交易，这可不叫骗。
+Melor: 老大！是我主动给Gabby的。
+
+Alice: “一边儿去。什么主动，你小鱼干的就是Juice帮的公共财产！我当然要管!听不见吗，一边儿去！”Gabby委屈的离开了。
+Alice“快点换回来，或者我就要自己动手拿了。”【提起爪子，伸出指甲】
+Gabby浑身一颤：“欸欸欸有话好好说，你看吃都吃了，您看宽限个几天，我给您带来。”
+Alice扬起嘴角：然后几天后就再也找不到你人了？我现在就要——或者，我这里有份工作机会，你要是能胜任的话，债务就一笔勾销；而且每天都能到美味的食物。不同意的话“她向前走去。
+
+<<linkreplace "救命啊啊啊">>
+你叫破喉咙都没有人来救你的！
+[[我听你的]]
+<</linkreplace>>
+
+
+:: StoryCaption {"position":"325,250","size":"100,100"}
+
+
+
+:: StoryInit {"position":"150,475","size":"100,100"}
+$GabbyFreindship
+
+
+:: StoryMenu {"position":"425,400","size":"100,100"}
+时间：$ShowTime
+金钱：$ShowMoney
+厨艺：$ShowCookingSkill
+智慧：$ShowWisdom
+
+[[物品图鉴|items]]
+[[角色图鉴|Freindship]]
+
+
+
+
+:: items {"position":"250,400","size":"100,100"}
+
+
+
+:: 我听你的 {"position":"1075,900","size":"100,100"}
+
+
+
+:: 未命名片段 {"position":"1075,400","size":"100,100"}
+
