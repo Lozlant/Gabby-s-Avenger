@@ -121,51 +121,67 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 	background-position: center;
 
 }
+
 .Gabby {
 	background-color: rgb(244,190,130);
 }
 .Gabby .avatar {
-	background-image: url('../Asset/Gabby/Gabby-A.png');
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">	Macro.add('speech', {
+	background-image: url('https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Gabby/Gabby-A.png');
+}
 
+.Melor {
+	background-color: rgb(221,205,161);
+}
+.Melor .avatar {
+	background-image: url('https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Melor/Melor-A.png');
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">    Macro.add('speech', {
 	tags   : null,
-
 	handler : function () {
-
-		var id = this.args[0], name = id;
-
-		if (this.args.length > 1) name = this.args[1];
-
+		var id = this.args[0], name = id, mood = this.args[1];
+      	name = '<strong>' + name + '</strong>'
+      	if(mood==null)mood=" ";
 		var output = '<div class="speech ' + id + '">';
-
 		output += '<span class="avatar"></span>';
-
-		if(id=="Youp") name = "You (cop)";
-
-		output += name + '<hr>' + this.payload[0].contents + '</div>';
-
+		output += name + "   "+ mood +'<hr>' + this.payload[0].contents + '</div>';
 		$(this.output).wiki(output);
-
 	}
-
-});</script><tw-passagedata pid="1" name="Start - 01 Gabby&#39;s avenger" tags="" position="1075,525" size="100,100">2.0
+  });</script><tw-passagedata pid="1" name="Start - 01 Gabby&#39;s avenger" tags="" position="1075,525" size="100,100">2.0
 12月7日，晴天，晚上九点
 &lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
-那是一个悠长的故事，我本是No.2452的猫猫王，身负天命，统帅无尽的罐罐和小鱼干。但却为奸臣所害：在冰天雪地中，臣子伴我出游时，擅自回宫，占领了我的王位。那暗影诡谲的宫廷，我实在不太愿意再着。但是，罐头已然蒙尘，小鱼干亦已冰寒；孤独的鱼儿，失落的鸟儿，在等待他们的王归来。我，Gabby，将再度连结众猫，向邪恶的人类发起反击！“
+&lt;&lt;type 40ms&gt;&gt;那是一个悠长的故事，我本是No.2452的猫猫王，身负天命，统帅无尽的罐罐和小鱼干。
+而后，我却为奸臣所害：在冰天雪地中，臣子伴我出游时，擅自回宫，占领了我的王位。那暗影诡谲的宫廷，我实在不太愿意再着。
+但是，罐头已然蒙尘，小鱼干亦已冰寒；孤独的鱼儿，失落的鸟儿，在等待他们的王归来。
+我，Gabby，将再度连结众猫，向邪恶的人类发起反击!&lt;&lt;set _end=true&gt;&gt;&lt;&lt;/type&gt;&gt;
 &lt;&lt;/speech&gt;&gt;
-&lt;&lt;linkreplace &quot;听懂掌声！&quot;&gt;&gt;
-【满意听到掌声，舔了舔手，自信的抬起头】
-&lt;&lt;timed 1s&gt;&gt;
-Melor崇拜的看着Gabby:&quot;太酷了!我也要加入！&quot;
-&quot;答应你的请求“Gabby说完，又叼起了一颗小鱼干，一口吞下后接着说，”那么你，能为我的费用复仇做些什么呢？“
-Melor歪头思考了一下，”A second!&quot; 她大叫一身，突然掉头跑掉了。
-
-Gabby要：
+&lt;&lt;timed 8s&gt;&gt;&lt;&lt;linkreplace &quot;听懂掌声！&quot;&gt;&gt;
+&lt;&lt;speech &quot;Gabby&quot; &quot;[满意听到掌声，舔了舔手，自信的抬起头]&quot;&gt;&gt;
+&lt;&lt;type 40ms&gt;&gt;我将如闪电般归来！&lt;&lt;/type&gt;&gt;
+&lt;&lt;/speech&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;&lt;&lt;linkreplace &quot;归来！&quot;&gt;&gt;
+&lt;&lt;speech &quot;Melor&quot; &quot;[崇拜的看着Gabby]&quot;&gt;&gt;
+&lt;&lt;type 40ms&gt;&gt;太酷了!我也要加入！&lt;&lt;/type&gt;&gt;
+&lt;&lt;/speech&gt;&gt;
+&lt;&lt;timed 1s&gt;&gt;&lt;&lt;linkreplace &quot;答应你的请求！&quot;&gt;&gt;
+&lt;&lt;speech &quot;Gabby&quot; &quot;[又叼起了一颗小鱼干，一口吞下]&quot;&gt;&gt;
+&lt;&lt;type 40ms&gt;&gt;答应你的请求。
+那么你，能为我的复仇做些什么呢？&lt;&lt;/type&gt;&gt;
+&lt;&lt;/speech&gt;&gt;
+&lt;&lt;timed 2s&gt;&gt;
+&lt;&lt;speech &quot;Melor&quot; &quot;[歪头思考了一下,突然掉头跑掉了]&quot;&gt;&gt;
+&lt;&lt;type 40ms&gt;&gt;A second!&lt;&lt;/type&gt;&gt;
+&lt;&lt;/speech&gt;&gt;
+&lt;&lt;type 40ms&gt;&gt;现在，Gabby要：
 [[等待Melor回来|Start - 02.1 Melor Back]]
-[[开溜！|Start - 02.1 Alice catch you]]
+[[开溜！|Start - 02.1 Alice catch you]]&lt;&lt;/type&gt;&gt;
 
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="未命名片段" tags="" position="1075,400" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="StoryMenu" tags="" position="425,400" size="100,100">时间：$ShowTime
+&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
+</tw-passagedata><tw-passagedata pid="2" name="未命名片段" tags="" position="1075,400" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="StoryMenu" tags="" position="425,400" size="100,100">时间：$ShowTime
 金钱：$ShowMoney
 厨艺：$ShowCookingSkill
 智慧：$ShowWisdom
