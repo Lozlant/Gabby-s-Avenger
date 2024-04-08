@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Gabby‘s Restaurants1" startnode="9" creator="Twine" creator-version="2.8.1" format="SugarCube" format-version="2.36.1" ifid="8E57BCFC-B751-4CDD-8E59-5BE1E00756BE" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* speech macro - Start */
+	<tw-storydata name="Gabby‘s Restaurants1" startnode="48" creator="Twine" creator-version="2.8.1" format="SugarCube" format-version="2.36.1" ifid="8E57BCFC-B751-4CDD-8E59-5BE1E00756BE" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* speech macro - Start */
 
 .speech {
 	color: Black;
@@ -191,6 +191,14 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		output += name +'<hr>' + this.payload[0].contents + '</div>';
 		$(this.output).wiki(output);
 	}
+  });
+window.playerInventory = {};
+window.playerMoney=1000;
+	Macro.add('addMoney', {
+	tags   : null,
+	handler : function () {
+		playerMoney+=parseInt(this.payload[0].contents);
+	}
   });</script><tw-tag name="Timing" color="red"></tw-tag><tw-tag name="widget" color="orange"></tw-tag><tw-tag name="noreturn" color="blue"></tw-tag><tw-passagedata pid="1" name="Start - 01 Gabby&#39;s avenger" tags="" position="1075,525" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 40ms&gt;&gt;那是一个悠长的故事，我本是No.2452的猫猫王，身负天命，统帅无尽的罐罐和小鱼干。
 而后，我却为奸臣所害：在冰天雪地中，臣子伴我出游时，擅自回宫，占领了我的王位。那暗影诡谲的宫廷，我实在不太愿意再着。
@@ -224,25 +232,66 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-</tw-passagedata><tw-passagedata pid="2" name="未命名片段" tags="" position="1075,400" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="StoryMenu" tags="" position="425,400" size="100,100">[[物品图鉴|items]]
-[[角色图鉴|Freindship]]</tw-passagedata><tw-passagedata pid="4" name="StoryInit" tags="" position="150,475" size="100,100">&lt;&lt;set $month=12&gt;&gt;
+</tw-passagedata><tw-passagedata pid="2" name="StoryMenu" tags="" position="425,400" size="100,100">[[物品图鉴|items]]
+[[角色图鉴|Freindship]]</tw-passagedata><tw-passagedata pid="3" name="StoryInit" tags="" position="150,475" size="100,100">&lt;&lt;set $month=12&gt;&gt;
 &lt;&lt;set $day=7&gt;&gt;
 &lt;&lt;set $hour = 9&gt;&gt;
 &lt;&lt;set $cookingLove=0&gt;&gt;
-&lt;&lt; set $MorganFreindshipLevel=0&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="items" tags="" position="600,525" size="100,100">[[返回|$return]]</tw-passagedata><tw-passagedata pid="6" name="StoryCaption" tags="" position="325,250" size="100,100">&lt;&lt;timeChangeWidget&gt;&gt;
+
+&lt;&lt;set $cookingSkill=0&gt;&gt;
+&lt;&lt;set $wisdom=0&gt;&gt;
+&lt;&lt;set $money=1000&gt;&gt;
+
+&lt;&lt;set $researchLevel=0&gt;&gt;
+&lt;&lt;set $RevengePassion=0&gt;&gt;
+
+&lt;&lt;set $MelorFreindshipLevel=0&gt;&gt;
+&lt;&lt;set $AliceFreindshipLevel=0&gt;&gt;
+&lt;&lt;set $MorganFreindshipLevel=0&gt;&gt;
+
+
+
+</tw-passagedata><tw-passagedata pid="4" name="items" tags="noreturn" position="600,525" size="100,100">[[返回|$return]]
+
+&lt;h2&gt;玩家库存&lt;/h2&gt;
+&lt;div id=&quot;playerInventory&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+    // 结账后更新玩家库存界面
+    function updatePlayerInventory() {
+        const playerInventoryElement = document.getElementById(&#39;playerInventory&#39;);
+        playerInventoryElement.innerHTML = &#39;&#39;;
+        for (const itemId in playerInventory) {
+            const item = playerInventory[itemId];
+            const itemElement = document.createElement(&#39;div&#39;);
+            itemElement.textContent = `${item.name}: ${item.quantity}`;
+            playerInventoryElement.appendChild(itemElement);
+        }
+    }
+    // 初始加载时更新玩家库存界面
+    updatePlayerInventory();
+&lt;/script&gt;
+</tw-passagedata><tw-passagedata pid="5" name="StoryCaption" tags="" position="300,400" size="100,100">&lt;&lt;timeChangeWidget&gt;&gt;
 &lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Gabby/Gabby-A.png&quot; width=&quot;250px&quot;&gt;
 时间：$showMonth $day 
 $hour : 00
-金钱：$ShowMoney
-厨艺：$ShowCookingSkill
-智慧：$ShowWisdom</tw-passagedata><tw-passagedata pid="7" name="Start - 02.1 Melor Back" tags="" position="1200,650" size="100,100">&lt;&lt;type 30ms&gt;&gt;很快，Gabby就带着一只通体白色的猫猫来了。&lt;&lt;/type&gt;&gt;
+金钱：$&lt;span id=&quot;playerMoney&quot;&gt;&lt;/span&gt;
+厨艺：$cookingSkill
+智慧：$wisdom
+&lt;script&gt;
+function updatePlayerMoney() {
+            const playerMoneyElement = document.getElementById(&#39;playerMoney&#39;);
+            playerMoneyElement.textContent = playerMoney;
+}
+updatePlayerMoney();
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Start - 02.1 Melor Back" tags="" position="1200,650" size="100,100">&lt;&lt;type 30ms&gt;&gt;很快，Gabby就带着一只通体白色的猫猫来了。&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 3s&gt;&gt; &lt;&lt;linkreplace 回来啦！&gt;&gt;
 &lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-A.png&quot; width=&quot;250px&quot;&gt; &lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Melor/Melor-A.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
 &lt;&lt;speech &quot;Melor&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;这是Alice！我们 Juice帮的老大！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;[[Juice帮？|Start - 03 Alice here]]&lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Start - 02.1 Alice catch you" tags="" position="950,650" size="100,100">&lt;&lt;type 30ms&gt;&gt;很快，当Gabby还没溜出出去两步，就被叫住了。&lt;&lt;/type&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Start - 02.1 Alice catch you" tags="" position="950,650" size="100,100">&lt;&lt;type 30ms&gt;&gt;很快，当Gabby还没溜出出去两步，就被叫住了。&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 2s&gt;&gt; &lt;&lt;linkreplace &quot;不得不回头&quot;&gt;&gt;
 &lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-A.png&quot; width=&quot;250px&quot;&gt; &lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Melor/Melor-A.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
 &lt;&lt;speech &quot;Melor&quot; &quot;[从一只白色猫猫背后探头]&quot;&gt;&gt;
@@ -254,7 +303,7 @@ $hour : 00
 [[Juice帮？|Start - 03 Alice here]]&lt;&lt;/type&gt;&gt;
 
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Start - 03 Alice here" tags="" position="1075,775" size="100,100">&lt;&lt;speech &quot;Alice&quot; &quot;[轻哼了一声。尾巴一下一下的打着地面]&quot;&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Start - 03 Alice here" tags="" position="1075,775" size="100,100">&lt;&lt;speech &quot;Alice&quot; &quot;[轻哼了一声。尾巴一下一下的打着地面]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;听说你想复仇，我想问问我们Juice帮是否够格？&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Gabby一愣，不自觉的连连点头。&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 4s&gt;&gt; &lt;&lt;linkreplace &quot;真是太够了&quot;&gt;&gt;
@@ -286,7 +335,7 @@ $hour : 00
 &lt;&lt;speech &quot;Alice&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;你叫破喉咙都没有人来救你的！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;
-[[我听你的|Internship - 01 Start Internship]]
+[[我听你的|Internship - 01 Start Internship][$day+=1]]
 [[宁死不屈|Start - End A]]&lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
@@ -295,13 +344,13 @@ $hour : 00
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="Freindship" tags="noreturn" position="425,525" size="100,100">[[返回|$return]]
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Freindship" tags="noreturn" position="425,525" size="100,100">[[返回|$return]]
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;link [img[https://raw.githubusercontent.com/Lozlant/Gabby-s-	Avenger/main/Asset/Melor/Melor-N.png][Melor]]&gt;&gt;
 
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link [img[https://raw.githubusercontent.com/Lozlant/Gabby-s-	Avenger/main/Asset/Alice/Alice-N.png][Alice]]&gt;&gt;&lt;&lt;/link&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="StoryAuthor" tags="" position="225,725" size="100,100"></tw-passagedata><tw-passagedata pid="12" name="Time" tags="widget" position="600,250" size="100,100">&lt;&lt;widget &quot;timeChangeWidget&quot;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="StoryAuthor" tags="" position="225,725" size="100,100"></tw-passagedata><tw-passagedata pid="11" name="Time" tags="widget" position="1575,975" size="100,100">&lt;&lt;widget &quot;timeChangeWidget&quot;&gt;&gt;&lt;&lt;nobr&gt;&gt;
 &lt;&lt;if $hour &gt;= 24&gt;&gt;
 	&lt;&lt;set $hour=$hour-24&gt;&gt;
     &lt;&lt;set $day=$day+1&gt;&gt;
@@ -320,7 +369,7 @@ $hour : 00
     &lt;&lt;set $showMonth = &quot;Invalid Month&quot;&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Melor" tags="" position="425,675" size="100,100">&lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Melor/Melor-N.png&quot; width=&quot;500px&quot;&gt;&lt;/center&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Melor" tags="" position="425,675" size="100,100">&lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Melor/Melor-N.png&quot; width=&quot;500px&quot;&gt;&lt;/center&gt;
 &lt;&lt;freindship &quot;Melor&quot;&gt;&gt;
 好感等级：
 喜欢的食物：$MelorLike
@@ -328,7 +377,7 @@ $hour : 00
 
 角色故事：
 $Story1 $Story2 $Story3
-&lt;&lt;/freindship&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="Alice" tags="" position="400,875" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="Luna-FS1 - 01 Luan Coming" tags="" position="375,1075" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+&lt;&lt;/freindship&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Alice" tags="" position="400,875" size="100,100"></tw-passagedata><tw-passagedata pid="14" name="Luna-FS1 - 01 Luan Coming" tags="" position="375,1075" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $cookingLove &lt;= 0&gt;&gt;累死我了，五分钟后我不能出现在我家床上我就炸了这个食堂！
 &lt;&lt;else&gt;&gt;累死我了，五分钟后我必须出现在我的床上！
 &lt;&lt;endif&gt;&gt;&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
@@ -343,14 +392,14 @@ $Story1 $Story2 $Story3
 
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-</tw-passagedata><tw-passagedata pid="16" name="Luna-FS1 - 02.1 No drink" tags="" position="500,1200" size="100,100">&lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Luna/Luna-DL.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
+</tw-passagedata><tw-passagedata pid="15" name="Luna-FS1 - 02.1 No drink" tags="" position="500,1200" size="100,100">&lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Luna/Luna-DL.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
 &lt;&lt;speech &quot;Luna&quot; &quot;[眉头一皱，露出了疑惑的神色]&quot;&gt;&gt;
 &lt;&lt;type 40ms&gt;&gt;好吧好吧，我不打扰你了。
 &lt;font color=&quot;#CC3333&quot;&gt;[Luna好感-3]&lt;/font&gt;
 &lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;set $LunaFreindship = $LunaFreindship -1&gt;&gt;
 &lt;&lt;set $cookingLove = $cookingLove -1&gt;&gt;
-[[下班！|Luna-FS1 - END]]</tw-passagedata><tw-passagedata pid="17" name="Luna-FS1 - 02.2 drink coming" tags="" position="350,1200" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&quot;[长叹一口气，走回工位，打开灯]&quot;&gt;&gt;
+[[下班！|Luna-FS1 - END]]</tw-passagedata><tw-passagedata pid="16" name="Luna-FS1 - 02.2 drink coming" tags="" position="350,1200" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&quot;[长叹一口气，走回工位，打开灯]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;下次请在打工猫的上班时间来。&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;timed 2s&gt;&gt;&lt;&lt;linkreplace &quot;并不太激情地调酒&quot;&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot;&quot;[在吧台一阵捣鼓.]&quot;&gt;&gt;
@@ -370,7 +419,7 @@ $Story1 $Story2 $Story3
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-</tw-passagedata><tw-passagedata pid="18" name="Luna-FS1 - 03.2 I no drink" tags="" position="425,1350" size="100,100">&lt;&lt;speech &quot;Gabby&quot; &quot;[Gabby一边和Luna闲聊，一边发愤擦着吧台]&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="17" name="Luna-FS1 - 03.2 I no drink" tags="" position="425,1350" size="100,100">&lt;&lt;speech &quot;Gabby&quot; &quot;[Gabby一边和Luna闲聊，一边发愤擦着吧台]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;不啦！你自己喝吧。刚好我现在打扫一下。&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;timed 3s&gt;&gt;&lt;&lt;linkreplace &quot;疯疯癫癫地打扫&quot;&gt;&gt;&lt;hr&gt;
 &lt;&lt;speech &quot;Luna&quot;&quot;[有一些喝醉了，摇摇晃晃站起来]&quot;&gt;&gt;
@@ -380,7 +429,7 @@ $Story1 $Story2 $Story3
 [[还有一些厨具需要整理。|Luna-FS1 - 03.2.2 More work to do]] 
 &lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Luna-FS1 - 03.1 I drink" tags="" position="250,1350" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="Luna-FS1 - 03.1 I drink" tags="" position="250,1350" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;好的！咱姐妹俩今天不醉不归&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;……一边喝酒， 一边闲聊的欢乐时间……&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 3s&gt;&gt;&lt;&lt;linkreplace &quot;嘿嘿，我手艺还不错&quot;&gt;&gt;&lt;hr&gt;
@@ -405,31 +454,31 @@ $Story1 $Story2 $Story3
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Luna-FS1 - END" tags="" position="600,1325" size="100,100"></tw-passagedata><tw-passagedata pid="21" name=" Luna-FS1 - 04.2 Go to find Luna" tags="" position="250,1475" size="100,100">&lt;&lt;type 40ms&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="Luna-FS1 - END" tags="" position="600,1325" size="100,100"></tw-passagedata><tw-passagedata pid="20" name=" Luna-FS1 - 04.2 Go to find Luna" tags="" position="250,1475" size="100,100">&lt;&lt;type 40ms&gt;&gt;
 Gabby应该去哪里找Luna呢？
 [[下水井|Luna-FS1 - 04.2.1 underwater]]
 [[垃圾桶|Luna-FS1 - 04.2.2 garbage can]]
 [[草垛|Luna-FS1 - 04.2.3 haystack]]
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Luna-FS1 - 04.2.1 underwater" tags="" position="325,1600" size="100,100">&lt;&lt;type 40ms&gt;&gt;Gabby在街上晃荡着。迷迷糊糊间，Gabby听到了一个无盖的下水井传出一些鼾声。&lt;&lt;/type&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="Luna-FS1 - 04.2.1 underwater" tags="" position="325,1600" size="100,100">&lt;&lt;type 40ms&gt;&gt;Gabby在街上晃荡着。迷迷糊糊间，Gabby听到了一个无盖的下水井传出一些鼾声。&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 2s&gt;&gt;&lt;&lt;linkreplace &quot;不会掉下去了吧！&quot;&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot;&quot;[一下子酒醒了，向下水井下望去]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;[[Luna！！Is that you！！！|Luna-FS1 - 05.1 rescure Luna]] &lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="Luna-FS1 - 04.2.2 garbage can" tags="" position="75,1600" size="100,100">&lt;&lt;type 40ms&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Luna-FS1 - 04.2.2 garbage can" tags="" position="75,1600" size="100,100">&lt;&lt;type 40ms&gt;&gt;
 Gabby在垃圾桶边上看了一圈，没有发现Luna。
 Gabby打开垃圾桶盖子，桶里也没有Luna的身影。
 于是，酒精渐渐上头的Gabby躺在街上睡着了。
 [[婴儿般的睡眠|Luna-FS1 - Dead]] 
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Luna-FS1 - 04.2.3 haystack" tags="" position="200,1600" size="100,100">&lt;&lt;type 40ms&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="Luna-FS1 - 04.2.3 haystack" tags="" position="200,1600" size="100,100">&lt;&lt;type 40ms&gt;&gt;
 Gabby看了一圈，没有发现Luna。
 在翻找草垛时，感受了一下草垛的触感，感觉非常的柔软。
 于是，酒精渐渐上头的Gabby躺在草垛上睡着了。
 [[婴儿般的睡眠|Luna-FS1 - Dead]] 
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="Luna-FS1 - Dead" tags="" position="175,1775" size="100,100"></tw-passagedata><tw-passagedata pid="26" name="Luna-FS1 - 03.2.2 More work to do" tags="" position="575,1475" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Luna-FS1 - Dead" tags="" position="175,1775" size="100,100"></tw-passagedata><tw-passagedata pid="25" name="Luna-FS1 - 03.2.2 More work to do" tags="" position="575,1475" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;不啦！你先回去吧！我还有一点事情没有做完！回头见！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Luna摇摇晃晃的站起来，走出门去。Gabby收拾完厨具，关门回家休息。
 [[下班！|Luna-FS1 - END]]&lt;&lt;/type&gt;&gt;
-</tw-passagedata><tw-passagedata pid="27" name="Luna-FS1 - 03.2.1 back home" tags="" position="425,1475" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="26" name="Luna-FS1 - 03.2.1 back home" tags="" position="425,1475" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;走吧！我们回家。&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 40ms&gt;&gt;Gabby不放心的跟着摇摇晃晃的Luna往她家的方向走去。&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 3s&gt;&gt;&lt;&lt;linkreplace &quot;前面有个下水井&quot;&gt;&gt;
@@ -448,7 +497,7 @@ Gabby看了一圈，没有发现Luna。
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Luna-FS1 - 05.1 rescure Luna" tags="" position="425,1725" size="100,100">&lt;&lt;speech &quot;Luna&quot;&quot;[给予的回音仅有鼾声]&quot;&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="Luna-FS1 - 05.1 rescure Luna" tags="" position="425,1725" size="100,100">&lt;&lt;speech &quot;Luna&quot;&quot;[给予的回音仅有鼾声]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;ZZZZZZZZZ……&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;timed 1s&gt;&gt;&lt;&lt;linkreplace &quot;你怎么睡得着的！&quot;&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot;&quot;[尾巴着急地立了起来]&quot;&gt;&gt;
@@ -479,7 +528,22 @@ Gabby看了一圈，没有发现Luna。
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="Luna-FS1 - SUCESS" tags="" position="575,1775" size="100,100"></tw-passagedata><tw-passagedata pid="30" name="Internship - 01 Start Internship" tags="" position="1175,950" size="100,100"></tw-passagedata><tw-passagedata pid="31" name="Start - End A" tags="" position="975,950" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;进入End: Gabby的复仇也不是非得开食堂不可 &lt;/font&gt;&lt;&lt;/type&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="Luna-FS1 - SUCESS" tags="" position="575,1775" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="Internship - 01 Start Internship" tags="" position="1175,950" size="100,100">&lt;&lt;set $MelorFreindshipLevel=1&gt;&gt;&lt;&lt;set $AliceFreindshipLevel=1&gt;&gt;
+&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;你们两个，认真听！别讲话了。我们食堂开业的时间是每天晚上6点，到时候来自不同地方的猫猫都会来你这里吃饭！你们要好好工作，争取在5天内把我们的名声打出去！、
+我会给你们1000元的创业资金。你们需要的食材可以到我这里购买。别用那种眼神看着我，我当然不会免费给你们提供食材。
+Melor, 好好干。Gabby，你是实习工，5天后我回来检查你的去留。
+今晚就会开始营业！好，散会！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;Alice带着Melor大步离开了。
+&lt;font color=&quot;#CC3333&quot;&gt;(提示：需要在5天后厨艺达到10点以通过实习）&lt;/font&gt;
+
+[[散会回家！|Internship - 02 schedule]] &lt;&lt;/type&gt;&gt;
+&lt;script&gt;
+function AddMoney(money){
+		playerMoney+=money
+}
+AddMoney(1000);
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="30" name="Start - End A" tags="" position="975,950" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;进入End: Gabby的复仇也不是非得开食堂不可 &lt;/font&gt;&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 2s&gt;&gt;
 &lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-N.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
 &lt;&lt;speech &quot;Alice&quot; &quot;[看着Gabby一脸死猪不怕开水烫的样子直接愣住]&quot;&gt;&gt;
@@ -494,6 +558,271 @@ Gabby跑到了一个未知的新地方开始她的新故事，但这就不是本
 
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="Internship - 02 schedule" tags="" position="1175,1075" size="100,100">&lt;&lt;set $hour=$hour+3&gt;&gt;
+&lt;&lt;speech &quot;Gabby&quot;, &quot;[回到Melor提供的住处，在床上来回碾了一圈]&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;没想到还得工作啊。至少，现在不用睡垃圾桶了。让我来看看现在每天都可以做什么：
+在早上9点起来，到晚上营业前大概可以干三件事，这三件事情的机会用于磨练技能，休息，或者到处逛逛，出去交友，都是可以的。今天的白天已经过去了，看看去哪里做什么吧&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+
+[[开始规划！|Daily - Schedule]] </tw-passagedata><tw-passagedata pid="32" name="Daily - Home" tags="" position="1600,1350" size="100,100">Gabby来到了餐厅。
+
+Gabby要做什么：
+[[看书|Daily - Read Book]]
+[[一觉睡到晚上|Daily - Schedule][$hour=18]]
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="33" name="Daily - resteraunt" tags="" position="1725,1350" size="100,100">Gabby来到了餐厅。
+Gabby要做什么：
+&lt;nobr&gt;&lt;&lt;if $cookingSkill&lt;=10&gt;&gt;[[试着做饭|Daily - Cooking]]
+&lt;&lt;elseif $cookingSkill&gt;=10&gt;&gt;[[钻研厨艺|Daily - Cooking]]
+&lt;&lt;endif&gt;&gt;&lt;/nobr&gt;
+&lt;&lt;if $MelorFreindshipLevel&gt;=1&gt;&gt;[[和Melor聊天|Daily - Chat with Melor]]&lt;&lt;endif&gt;&gt;
+
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="34" name="Daily - Schedule" tags="" position="1600,1200" size="100,100">现在是 $hour : 00, &lt;&lt;if $hour&lt;18&gt;&gt;看看去哪里做什么吧！
+[[家|Daily - Home]]
+[[食堂|Daily - resteraunt]]
+[[街区四处逛逛|Daily - Neighborhood]]
+&lt;&lt;else&gt;&gt;
+[[前往营业|Daily - Open]]
+&lt;&lt;endif&gt;&gt;
+</tw-passagedata><tw-passagedata pid="35" name="Daily - Chat with Melor" tags="" position="1725,1475" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $MelorFreindshipLevel==1&gt;&gt;
+你们讨论了许多有关Juice帮的事情。Melor很喜欢和你聊天。
+&lt;font color=&quot;#00FF66&quot;&gt;[Melor好感+1]&lt;/font&gt;
+&lt;&lt;set $MelorFreindship=$MelorFreindship+1&gt;&gt;
+&lt;&lt;endif&gt;&gt;
+[[喜欢Melor的一天！|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Daily - Neighborhood" tags="" position="2100,1200" size="100,100">Gabby在街区上晃悠，街区很大，选一个要去的地方吧。
+
+Gabby要做什么：
+&lt;&lt;if $AliceFreindshipLevel&gt;=1&gt;&gt;[[和Alice聊天|Daily - Chat with Alice]]&lt;&lt;endif&gt;&gt;
+[[向Alice购买食材|Daily - Buy material]]
+[[去街区的东边|Daily - Neighborhood East]]
+[[去街区的西边|Daily - Neighborhood West]]
+[[去街区的南边|Daily - Neighborhood South]]
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="37" name="Daily - Chat with Alice" tags="" position="2300,1150" size="100,100">&lt;&lt;if $AliceFreindshipLevel==1&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;你和他分享了一下最近的事情，讨论了复仇的细节。
+&lt;font color=&quot;#00FF66&quot;&gt;[Alice好感+1]&lt;/font&gt;&lt;&lt;/type&gt;&gt;
+&lt;&lt;set $AliceFreindship=$AliceFreindship+1&gt;&gt;
+&lt;&lt;set $RevengePassion=$RevengePassion+1&gt;&gt;
+&lt;&lt;endif&gt;&gt;
+[[喜欢Alice的一天！|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="Daily - Buy material" tags="" position="2375,1375" size="100,100">&lt;center&gt;&lt;img src = &quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-L.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
+&lt;h2&gt;欢迎选购商品喵&lt;/h2&gt;&lt;hr&gt;
+&lt;strong&gt;Apple&lt;/strong&gt;
+价格: $5
+库存: &lt;span id=&quot;stock1&quot;&gt;5&lt;/span&gt;
+&lt;button onclick=&quot;addToCart(&#39;product1&#39;, &#39;Apple&#39;, 5, &#39;stock1&#39;)&quot;&gt;Add to Cart&lt;/button&gt;
+
+&lt;strong&gt;Meat&lt;/strong&gt;
+价格: $15
+库存: &lt;span id=&quot;stock2&quot;&gt;5&lt;/span&gt;
+&lt;button onclick=&quot;addToCart(&#39;product2&#39;, &#39;Meat&#39;, 15, &#39;stock2&#39;)&quot;&gt;Add to Cart&lt;/button&gt;
+
+&lt;strong&gt;面粉&lt;/strong&gt;
+价格: $2
+库存: &lt;span id=&quot;stock3&quot;&gt;5&lt;/span&gt;
+&lt;button onclick=&quot;addToCart(&#39;product3&#39;, &#39;面粉&#39;, 2, &#39;stock3&#39;)&quot;&gt;Add to Cart&lt;/button&gt;
+
+&lt;strong&gt;Milk&lt;/strong&gt;
+价格: $2
+库存: &lt;span id=&quot;stock4&quot;&gt;5&lt;/span&gt;
+&lt;button onclick=&quot;addToCart(&#39;product4&#39;, &#39;Milk&#39;,2 , &#39;stock4&#39;)&quot;&gt;Add to Cart&lt;/button&gt;
+
+&lt;strong&gt;Egg&lt;/strong&gt;
+价格: $2
+库存: &lt;span id=&quot;stock5&quot;&gt;5&lt;/span&gt;
+&lt;button onclick=&quot;addToCart(&#39;product5&#39;, &#39;Egg&#39;, 2, &#39;stock5&#39;)&quot;&gt;Add to Cart&lt;/button&gt;
+
+&lt;hr&gt;
+ &lt;h2&gt;购物车&lt;/h2&gt;
+        &lt;div id=&quot;cartItems&quot;&gt;&lt;/div&gt;
+        &lt;h3 id=&quot;totalPrice&quot;&gt;总价: $0&lt;/h3&gt;
+        &lt;button onclick=&quot;checkout()&quot;&gt;结账&lt;/button&gt;
+
+[[买完了，回家！|Daily - Schedule][$hour+=3]] 
+&lt;script&gt;
+    cart = [];
+    totalPrice = 0;
+function addToCart(id, name, price, stockId) {
+    const stockElement = document.getElementById(stockId);
+    let stock = parseInt(stockElement.textContent);
+    if (stock &gt; 0) {
+        // 检查购物车中是否已经存在相同的物品
+        let existingItem = cart.find(item =&gt; item.id === id);
+        if (existingItem) {
+            existingItem.quantity++; // 更新现有物品的数量
+        } else {
+            cart.push({ id, name, price, quantity: 1 }); // 添加新的物品到购物车
+        }
+        totalPrice += price;
+        stock--;
+        stockElement.textContent = stock;
+        updateCart();
+    } else {
+        alert(&quot;库存不足！&quot;);
+    }
+}
+function updateCart() {
+    const cartItemsElement = document.getElementById(&#39;cartItems&#39;);
+    const totalPriceElement = document.getElementById(&#39;totalPrice&#39;);
+    cartItemsElement.innerHTML = &#39;&#39;;
+    cart.forEach(item =&gt; {
+        const cartItemElement = document.createElement(&#39;div&#39;);
+        cartItemElement.classList.add(&#39;cart-item&#39;);
+        cartItemElement.textContent = `${item.name} - $${item.price} - 数量: ${item.quantity}`;
+        cartItemsElement.appendChild(cartItemElement);
+    });
+    totalPriceElement.textContent = `总价: $${totalPrice}`;
+}
+function getQuantity(itemId) {
+    let quantity = 0;
+    cart.forEach(item =&gt; {
+        if (item.id === itemId) {
+            quantity++;
+        }
+    });
+    return quantity;
+}
+function checkout() { 
+      if (playerMoney &gt;= totalPrice) {
+          playerMoney -= totalPrice;
+          updatePlayerMoney();
+          cart.forEach(item =&gt; {
+      		if (!playerInventory[item.name]) {
+           		 playerInventory[item.name] = {
+            	name: item.name,
+           		 quantity: 0 // 初始化数量为0
+           		 };
+       		 }
+        	// 将购物车中物品的数量添加到玩家库存中
+        	playerInventory[item.name].quantity += item.quantity;
+    });        
+                alert(`购买成功！总价: $${totalPrice}`);
+                cart = [];
+        		totalPrice = 0;
+                updateCart() ;
+            } else {
+                alert(&quot;金钱不足！&quot;);
+            }
+    }
+&lt;/script&gt;
+</tw-passagedata><tw-passagedata pid="39" name="Daily - Neighborhood East" tags="" position="2375,1500" size="100,100">你四处逛了逛，什么也没有
+
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="40" name="Daily - Neighborhood West" tags="" position="2250,1500" size="100,100">你四处逛了逛，什么也没有
+
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="41" name="Daily - Neighborhood South" tags="" position="2100,1500" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $researchLevel==0&gt;&gt;
+Gabby发现了一个奇异的箱子。它被这个神奇的箱子吸引了。她试着推动箱子，结果纹丝不动。
+Gabby研究了一会儿，发现了箱子和墙根的缝隙里有一本小册子，上面的画着一些莫名其妙的图案。Gabby什么也没搞明白。&lt;&lt;set $researchLevel=1&gt;&gt;
+&lt;&lt;else&gt;&gt;
+Gabby要做什么：
+[[研究箱子|Daily - Research Chest]]
+[[重新规划|Daily - Schedule]]
+&lt;&lt;endif&gt;&gt;
+[[回家！|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="Daily - Research Chest" tags="" position="2100,1625" size="100,100"></tw-passagedata><tw-passagedata pid="43" name="Daily - Cooking" tags="" position="1850,1475" size="100,100">&lt;&lt;type 30ms&gt;&gt;一场酣畅淋漓的做饭
+&lt;font color=&quot;#00FF66&quot;&gt;[厨艺+1]&lt;/font&gt;&lt;&lt;/type&gt;&gt;&lt;&lt;set $cookingSkill+=1&gt;&gt;
+[[厨艺精进啦！|Daily - Schedule][$hour+=3]] </tw-passagedata><tw-passagedata pid="44" name="Daily - Open" tags="" position="1600,1700" size="100,100">Melor向你送上了顾客的点单。
+
+&lt;h1&gt;Alice&#39;s Resteraunt&lt;/h1&gt;
+    &lt;h2&gt;订单列表&lt;/h2&gt;
+    &lt;div id=&quot;orderList&quot;&gt;
+        &lt;!-- 订单列表将在 JavaScript 中动态生成 --&gt;
+    &lt;/div&gt;
+    
+    [[结束营业|Daily - End the Day]]
+    
+    &lt;script&gt;
+        // 订单列表
+        orders = [
+            {
+                id: 1,
+                dish: &quot;Apple Juice&quot;,
+                customer: &quot;Alice&quot;,
+                ingredients: [&quot;Apple&quot;]
+            },
+            {
+                id: 2,
+                dish: &quot;Hot Dog&quot;,
+                customer: &quot;普通小猫&quot;,
+                ingredients: [&quot;Meat&quot;]
+            },
+            // 可以添加更多订单...
+        ];
+
+        // 生成订单列表
+function generateOrderList() {
+    const orderListElement = document.getElementById(&#39;orderList&#39;);
+    orderListElement.innerHTML = &#39;&#39;;
+    orders.forEach(order =&gt; {
+        const orderElement = document.createElement(&#39;div&#39;);
+        let ingredientsText = order.ingredients.join(&#39;, &#39;); // 将材料数组转换为字符串并用逗号分隔
+        orderElement.textContent = `订单 ${order.id}: ${order.dish} - 顾客: ${order.customer}，所需材料: ${ingredientsText}   `;
+        const orderButton = document.createElement(&#39;button&#39;);
+        orderButton.textContent = &quot;上餐&quot;;
+        orderButton.addEventListener(&#39;click&#39;, () =&gt; {
+            fulfillOrder(order, orderElement);
+        });
+        orderElement.appendChild(orderButton);
+        orderListElement.appendChild(orderElement);
+    });
+}
+
+
+        // 处理订单
+        function fulfillOrder(order, orderElement) {
+            // 检查订单所需的每个物品是否在玩家库存中，并且库存数量是否足够
+            let ingredientsAvailable = order.ingredients.every(itemId =&gt; {
+                return playerInventory[itemId] &amp;&amp; playerInventory[itemId].quantity &gt; 0;
+            });
+
+            // 如果所有物品都足够，则扣除相应的数量，并从订单列表中移除订单
+            if (ingredientsAvailable) {
+                order.ingredients.forEach(itemId =&gt; {
+                    playerInventory[itemId].quantity--;
+                });
+                // 成功上餐后从订单列表中移除该订单
+                document.getElementById(&#39;orderList&#39;).removeChild(orderElement);
+            } else {
+                alert(&quot;仓库材料不足，无法完成订单。&quot;);
+            }
+        }
+
+        // 初始化界面
+        generateOrderList();
+    &lt;/script&gt;</tw-passagedata><tw-passagedata pid="45" name="Daily - Read Book" tags="" position="1450,1350" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $wisdom&lt;=15&gt;&gt;Melor认真的盯着书，发出了阿巴阿巴的声音。
+&lt;font color=&quot;#00FF66&quot;&gt;[智慧+1]&lt;/font&gt;&lt;&lt;set $wisdom+=1&gt;&gt;
+&lt;&lt;else&gt;&gt;Melor认真的看书，发出了恍然大悟的声音。
+&lt;font color=&quot;#00FF66&quot;&gt;[智慧+2]&lt;/font&gt;&lt;&lt;set $wisdom+=2&gt;&gt;
+&lt;&lt;endif&gt;&gt;
+[[学习的天才！|Daily - Schedule][$hour+=3]] 
+&lt;&lt;/type&gt;&gt;
+</tw-passagedata><tw-passagedata pid="46" name="未命名片段" tags="" position="1700,975" size="100,100">&lt;&lt;widget &quot;timeChangeWidget&quot;&gt;&gt;&lt;&lt;nobr&gt;&gt;
+$sho
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="47" name="Daily - End the Day" tags="" position="1600,1850" size="100,100">营业结束啦。
+&lt;&lt;if $month==12 &amp;&amp; $day&lt;12&gt;&gt;&lt;&lt;set _remain=12-$day&gt;&gt;
+离实习期结束还有_remain天
+&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $month==12 &amp;&amp; $day==12&gt;&gt;
+今夜是实习的最后一天。今天Gabby的去留要被确定了
+[[Alice来了|Internship - 03 test]]
+&lt;&lt;else&gt;&gt;
+	Gabby睡觉了。
+	[[开始新的一天|Daily - Schedule][$day+=1]]
+ &lt;&lt;endif&gt;&gt;
+</tw-passagedata><tw-passagedata pid="48" name="Internship - 03 test" tags="" position="1175,1200" size="100,100">&lt;&lt;if $cookingSkill &gt;= 6&gt;&gt;
+	&lt;&lt;if $cookingSkill &gt;= 6 &amp;&amp; $cookingSkill &lt;10 &gt;&gt;
+	&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
+	&lt;&lt;type 30ms&gt;&gt;手艺不错，还挺有上进心的。客人对你的评价都很好。从今天起你也是正式员工了，好好干哈。早日赚钱咱们早日复仇。&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+	&lt;&lt;elseif $cookingSkill&gt;=10&gt;&gt;
+	&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
+	&lt;&lt;type 30ms&gt;&gt;我没想到我招来的厨师长竟然如此专业。实在令人惊喜。从今天起你也是正式员工了，好好干哈。早日赚钱咱们早日复仇。还有这是200奖金，收好！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;&lt;&lt;addMoney&gt;&gt;200&lt;&lt;/addMoney&gt;&gt;&lt;&lt;endif&gt;&gt;
+&lt;&lt;speech &quot;Melor&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;真的很好吃！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;Alice带着Melor离开了。你也高高兴兴的回到了住所，期待明天的来来临。
+[[开始新的一天|Daily - Schedule][$day+=1]]&lt;&lt;/type&gt;&gt;
+&lt;&lt;elseif  $cookingSkill &lt;= 6 &amp;&amp; $AliceFreindshipLevel&lt;=1&gt;&gt;
+	[[开始厨艺测试|Internship - End A]]
+&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="Internship - End A" tags="" position="1175,1325" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;进入End: 你的复仇对象难道是我？ &lt;/font&gt;&lt;&lt;/type&gt;&gt;
+&lt;&lt;timed 2s&gt;&gt;
+&lt;&lt;speech &quot;Alice&quot; &quot;[被难吃的食物噎的面色发青]&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;我从来没有见过这么没有上进心的猫！
+你，你被开除了，现在立刻马上。收拾东西滚出去！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;惹了Alice发火的Gabby在Wiskerville也没法继续待下了，她去了到了一个未知的新地方开始她的新故事，但这就不是本故事要讲述的内容了。&lt;hr&gt;
+&lt;font color=&quot;#CC3333&quot;&gt;END&lt;/font&gt;&lt;&lt;/type&gt;&gt;
 &lt;&lt;/timed&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
