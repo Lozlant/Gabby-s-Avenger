@@ -98,7 +98,7 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Gabby‘s Restaurants" startnode="87" creator="Twine" creator-version="2.8.1" format="SugarCube" format-version="2.36.1" ifid="8E57BCFC-B751-4CDD-8E59-5BE1E00756BE" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* speech macro - Start */
+	<tw-storydata name="Gabby‘s Restaurants" startnode="1" creator="Twine" creator-version="2.8.1" format="SugarCube" format-version="2.36.1" ifid="8E57BCFC-B751-4CDD-8E59-5BE1E00756BE" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* speech macro - Start */
 
 .speech {
 	color: Black;
@@ -233,7 +233,7 @@ Macro.add('checkItem', {
     }
     }); 
            
-      </script><tw-tag name="widget" color="orange"></tw-tag><tw-tag name="noreturn" color="blue"></tw-tag><tw-passagedata pid="1" name="Start - 01 Gabby&#39;s avenger" tags="" position="500,100" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+      </script><tw-tag name="widget" color="orange"></tw-tag><tw-tag name="done" color="blue"></tw-tag><tw-passagedata pid="1" name="Start - 01 Gabby&#39;s avenger" tags="done" position="500,100" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;It&#39;s a long story. I was once the Cat King, No. 2452, destined to command endless cans and treats. 
 However, I was betrayed by a traitor: while my subjects and I were out exploring in the icy wilderness, the scheming courtier seized my throne upon my return to the palace. I&#39;m not too keen on returning to that shadowy and treacherous court. 
 Yet, the cans are now covered in dust, and the treats have turned cold; the lonely fish and the lost birds await their king&#39;s return. 
@@ -290,6 +290,10 @@ So, what can you do for my revenge?&lt;&lt;/type&gt;&gt;
 &lt;&lt;set $AliceFreindshipLevel=0&gt;&gt;
 &lt;&lt;set $AliceFreindship=0&gt;&gt;
 &lt;&lt;set $AliceEnd=0&gt;&gt;
+&lt;&lt;set $FS1waitDay=-999&gt;&gt;
+&lt;&lt;set $waitToFight==0&gt;&gt;
+&lt;&lt;set $giveBird=0&gt;&gt;
+&lt;&lt;set $FruitGuang=0&gt;&gt;
 
 &lt;&lt;set $LunaFreindshipLevel=0&gt;&gt;
 &lt;&lt;set $LunaFreindship=0&gt;&gt;
@@ -297,10 +301,11 @@ So, what can you do for my revenge?&lt;&lt;/type&gt;&gt;
 &lt;&lt;set $LunaAlive=1&gt;&gt; 
 
 &lt;&lt;set $MorganFreindshipLevel=0&gt;&gt;
+&lt;&lt;set $MorganFreindship=0&gt;&gt;
+&lt;&lt;set $MorganEnd=0&gt;&gt;
 
-&lt;&lt;set $FS1waitDay=-999&gt;&gt;
-&lt;&lt;set $giveBird=0&gt;&gt;
-</tw-passagedata><tw-passagedata pid="4" name="items" tags="noreturn" position="250,900" size="100,100">[[返回|$return]]
+&lt;&lt;set $license=0&gt;&gt;
+&lt;&lt;set $hasTest=0&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="items" tags="done" position="250,900" size="100,100">[[返回|$return]]
 
 &lt;h2&gt;玩家库存&lt;/h2&gt;
 &lt;div id=&quot;playerInventory&quot;&gt;&lt;/div&gt;
@@ -333,14 +338,14 @@ function updatePlayerMoney() {
             playerMoneyElement.textContent = playerMoney;
 }
 updatePlayerMoney();
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Start - 02.1 Melor Back" tags="" position="650,250" size="100,100">&lt;&lt;type 30ms&gt;&gt;Soon, Melor arrived with an all-white cat.&lt;&lt;/type&gt;&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Start - 02.1 Melor Back" tags="done" position="650,250" size="100,100">&lt;&lt;type 30ms&gt;&gt;Soon, Melor arrived with an all-white cat.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 3s&gt;&gt; &lt;&lt;linkreplace &quot;I am back!&quot;&gt;&gt;
 &lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-A.png&quot; width=&quot;250px&quot;&gt; &lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Melor/Melor-A.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
 &lt;&lt;speech &quot;Melor&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;This is Alice! She&#39;s the boss of the Juice Gang!&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;[[Juice Gang？|Start - 03 Alice here]]&lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Start - 02.1 Alice catch you" tags="" position="500,250" size="100,100">&lt;&lt;type 30ms&gt;&gt;Soon, before Gabby could take two steps, she was called back。&lt;&lt;/type&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="Start - 02.1 Alice catch you" tags="done" position="500,250" size="100,100">&lt;&lt;type 30ms&gt;&gt;Soon, before Gabby could take two steps, she was called back。&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 2s&gt;&gt; &lt;&lt;linkreplace &quot;Had to turn back.&quot;&gt;&gt;
 &lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-A.png&quot; width=&quot;250px&quot;&gt; &lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Melor/Melor-A.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
 &lt;&lt;speech &quot;Melor&quot; &quot;[Pokes her head out from behind a white cat.]&quot;&gt;&gt;
@@ -352,7 +357,7 @@ updatePlayerMoney();
 [[Juice Gang? |Start - 03 Alice here]]&lt;&lt;/type&gt;&gt;
 
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Start - 03 Alice here" tags="" position="500,400" size="100,100">&lt;&lt;speech &quot;Alice&quot; &quot;[She let out a soft hum and thumped her tail on the ground.]&quot;&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Start - 03 Alice here" tags="done" position="500,400" size="100,100">&lt;&lt;speech &quot;Alice&quot; &quot;[She let out a soft hum and thumped her tail on the ground.]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;I heard you want revenge. I&#39;d like to ask if our Juice Gang is qualified?&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Gabby was taken aback and unconsciously nodded repeatedly.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 5s&gt;&gt; &lt;&lt;linkreplace &quot;That&#39;s more than enough.&quot;&gt;&gt;
@@ -392,13 +397,13 @@ Can&#39;t you hear me? Go away!&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Freindship" tags="noreturn" position="100,900" size="100,100">[[返回|$return]]
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Freindship" tags="done" position="100,900" size="100,100">[[返回|$return]]
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;link [img[https://raw.githubusercontent.com/Lozlant/Gabby-s-	Avenger/main/Asset/Melor/Melor-N.png][Melor]]&gt;&gt;
 
 &lt;&lt;/link&gt;&gt;
 &lt;&lt;link [img[https://raw.githubusercontent.com/Lozlant/Gabby-s-	Avenger/main/Asset/Alice/Alice-N.png][Alice]]&gt;&gt;&lt;&lt;/link&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="StoryAuthor" tags="" position="100,500" size="100,100"></tw-passagedata><tw-passagedata pid="11" name="Luna-FS1 - 01 Luan Coming" tags="" position="2700,200" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="10" name="StoryAuthor" tags="" position="100,500" size="100,100"></tw-passagedata><tw-passagedata pid="11" name="Luna-FS1 - 01 Luan Coming" tags="" position="2625,150" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $cookingLove &lt;= 0&gt;&gt;I&#39;m exhausted! If I&#39;m not lying on my bed at home in five minutes, I gonna blow up this cafeteria!
 &lt;&lt;else&gt;&gt;I&#39;m exhausted! I must be on my bed in five minutes!
 &lt;&lt;endif&gt;&gt;&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
@@ -569,7 +574,7 @@ Gabby looked around but didn&#39;t find Luna. As she searched through the haysta
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Luna-FS1 - Dead" tags="" position="2925,525" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="Luna-FS1 - SUCESS" tags="" position="2625,1025" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="Internship - 01 Start Internship" tags="" position="500,550" size="100,100">&lt;&lt;set $MelorFreindshipLevel=1&gt;&gt;&lt;&lt;set $AliceFreindshipLevel=1&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Luna-FS1 - Dead" tags="" position="2925,525" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="Luna-FS1 - SUCESS" tags="" position="2625,1025" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="Internship - 01 Start Internship" tags="done" position="500,550" size="100,100">&lt;&lt;set $MelorFreindshipLevel=1&gt;&gt;&lt;&lt;set $AliceFreindshipLevel=1&gt;&gt;
 &lt;&lt;speech &quot;Alice&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Listen up, both of you! Stop talking. Our cafeteria will open every evening at 6 o&#39;clock. Cats from different places will come here to eat at that time! You need to work hard and try to build our reputation within 5 days!
 I&#39;ll give you $1000  as start-up capital. You can buy the ingredients from me. Don&#39;t look at me like that! Of course, I won&#39;t provide you with ingredients for free.
@@ -578,7 +583,7 @@ We&#39;ll start operating tonight! Okay, go home now!&lt;&lt;/type&gt;&gt;&lt;&l
 &lt;&lt;type 30ms&gt;&gt;Alice walks away with Melor.
 &lt;font color=&quot;#CC3333&quot;&gt;(Tips: Gabby needs to improve her cooking skills to 10 points to pass.）&lt;/font&gt;
 
-[[Go home！|Internship - 02 schedule]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="Start - End A" tags="" position="650,550" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;Enter End: Gabby&#39;s revenge doesn&#39;t necessarily have to involve opening a cafeteria.&lt;/font&gt;&lt;&lt;/type&gt;&gt;
+[[Go home！|Internship - 02 schedule]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="29" name="Start - End A" tags="done" position="650,550" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;Enter End: Gabby&#39;s revenge doesn&#39;t necessarily have to involve opening a cafeteria.&lt;/font&gt;&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 2s&gt;&gt;
 &lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-N.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
 &lt;&lt;speech &quot;Alice&quot; &quot;[Staring at Gabby, who looked as calm as a dead mouse feels no cold, Alice was stunned.]&quot;&gt;&gt;
@@ -592,7 +597,7 @@ We&#39;ll start operating tonight! Okay, go home now!&lt;&lt;/type&gt;&gt;&lt;&l
 
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Melor_FS1_01" tags="" position="4200,700" size="100,100">&lt;&lt;type 30ms&gt;&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="Melor_FS1_01" tags="" position="4100,700" size="100,100">&lt;&lt;type 30ms&gt;&gt;
 Melor非常难过的走进食堂。
 &lt;&lt;/type&gt;&gt;
 
@@ -634,7 +639,7 @@ Gabby捧着蘑菇化成的灰，惊慌失措。看四处无人，于是Gabby决�
 &lt;&lt;type 40ms&gt;&gt;
 [[开溜！|mushroom_02.1 run]]
 [[找到花圃的主人并道歉。|mushroom_02.2 sorry]]&lt;&lt;/type&gt;&gt;
-</tw-passagedata><tw-passagedata pid="32" name="safetypermit_02.1 no permit" tags="" position="1300,250" size="100,100">&lt;&lt;set $hour=9&gt;&gt;
+</tw-passagedata><tw-passagedata pid="32" name="safetypermit_02.1 no permit" tags="done" position="1300,250" size="100,100">&lt;&lt;set $hour=9&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Following protocol, Morgan took Gabby back to the police station for questioning. Gabby was detained pending further proceedings.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 4s&gt;&gt;&lt;&lt;linkreplace &quot;Wrongfully accused, sir!&quot;&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot;Shouting in the detention center.&gt;&gt;
@@ -648,7 +653,7 @@ Gabby捧着蘑菇化成的灰，惊慌失措。看四处无人，于是Gabby决�
 [[Sir, I don&#39;t have any money.|safetypermit - Ending]]
 &lt;&lt;checkMoney &quot;600&quot; &quot;600&quot;&gt;&gt;[[I worked so hard to earn.|safetypermit_03.2 givemoney]]&lt;&lt;/checkMoney&gt;&gt;&lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="safetypermit_02.2 Alice!" tags="" position="1450,250" size="100,100">&lt;&lt;type 30ms&gt;&gt;While Morgan&#39;s attention was focused on Gabby, Melor quickly dashed out to search for Alice.&lt;&lt;/type&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="safetypermit_02.2 Alice!" tags="done" position="1450,250" size="100,100">&lt;&lt;type 30ms&gt;&gt;While Morgan&#39;s attention was focused on Gabby, Melor quickly dashed out to search for Alice.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 3s&gt;&gt;&lt;&lt;linkreplace &quot;Where is my boss!&quot;&gt;&gt;
 &lt;&lt;speech &quot;Melor&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Hold on!!!&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
@@ -665,14 +670,14 @@ Gabby捧着蘑菇化成的灰，惊慌失措。看四处无人，于是Gabby决�
 [[The battle is intense!|safetypermit_03.2.1 Peace]]&lt;&lt;/type&gt;&gt;
 
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="safetypermit_03.2 givemoney" tags="" position="1450,400" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby handed over all the money she had worked so hard to earn.&lt;&lt;/type&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="34" name="safetypermit_03.2 givemoney" tags="done" position="1450,400" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby handed over all the money she had worked so hard to earn.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 3s&gt;&gt;&lt;&lt;linkreplace &quot;Ah, my money! I might as well be dead.&quot;&gt;&gt;
 &lt;&lt;speech &quot;Morgan&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Alright, you can go home now. But you can&#39;t operate in Kitty Haven Park until you get your safety permit. I see you&#39;re struggling with just one cat, so I&#39;ve signed you up for the safety operation assessment test. Go attend it.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot; “Shedding tears for the hard-earned money.&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Yes, sir.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 40ms&gt;&gt;[[Join in the test.|safetypermit - 04.1Test1]]&lt;&lt;/type&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="catch_01" tags="" position="4000,525" size="100,100">&lt;&lt;type 30ms&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="35" name="catch_01" tags="" position="3900,700" size="100,100">&lt;&lt;type 30ms&gt;&gt;
 经过一段时间的营业，Gaaby在Kitty Haven Park已经有很高的人气啦。Gabby和Morgan也比较熟悉了。
 &lt;&lt;/type&gt;&gt;
 
@@ -870,7 +875,7 @@ Due to her agility,  she is immediately mistaken for an assassin by the guards a
 &lt;&lt;type 30ms&gt;&gt;
 [[Adding more force.|kingdom_03.1 force.]]
 [[Crouch down immediately.|kingdom_02.2 crouch]]
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Internship - 02 schedule" tags="" position="500,700" size="100,100">&lt;&lt;set $hour=$hour+3&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="Internship - 02 schedule" tags="done" position="500,700" size="100,100">&lt;&lt;set $hour=$hour+3&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot; &quot;[She returned to the room provided by Melor and paced around the bed.]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt; I still have to work. Well, at least, I don&#39;t have to sleep in a trash can anymore. Let&#39;s see what I can do every day now:
 
@@ -889,14 +894,14 @@ I will wake up at 9:00 a.m. and can do three things before the evening business.
 Gabby要做什么：
 [[看书|Daily - Read Book]]
 [[一觉睡到晚上|Daily - Schedule][$hour=18]]
-[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="46" name="Daily - resteraunt" tags="" position="1700,2600" size="100,100">Gabby arrived at the restaurant.
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="46" name="Daily - resteraunt" tags="done" position="1700,2600" size="100,100">Gabby arrived at the restaurant.
 Gabby is going to do:
 &lt;nobr&gt;&lt;&lt;if $cookingSkill&lt;=10&gt;&gt;[[Trying to cook.|Daily - Cooking]]
 &lt;&lt;elseif $cookingSkill&gt;=10&gt;&gt;[[Developing new recipes.|Daily - Cooking]]
 &lt;&lt;endif&gt;&gt;&lt;/nobr&gt;
 &lt;&lt;if $MelorFreindshipLevel&gt;=1&gt;&gt;[[Chating with Melor.|Daily - Chat with Melor]]&lt;&lt;endif&gt;&gt;
 
-[[Reorganizing the plan.|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="47" name="Daily - Neighborhood" tags="" position="1600,2000" size="100,100">&lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Map/W.png&quot; width=&quot;500px&quot;&gt;&lt;/center&gt;
+[[Reorganizing the plan.|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="47" name="Daily - Neighborhood" tags="" position="1625,2000" size="100,100">&lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Map/W.png&quot; width=&quot;500px&quot;&gt;&lt;/center&gt;
 Gabby在街区上晃悠，街区很大，选一个要去的地方吧。
 
 Gabby要做什么：
@@ -905,7 +910,7 @@ Gabby要做什么：
 [[去街区的东边|Daily - Neighborhood East]]
 [[去街区的西边|Daily - Neighborhood West]]
 [[去街区的南边|Daily - Neighborhood South]]
-[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="48" name="Daily - Open" tags="" position="625,2625" size="100,100">Melor向你送上了顾客的点单。
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="48" name="Daily - Open" tags="" position="600,2600" size="100,100">Melor向你送上了顾客的点单。
 
 &lt;h1&gt;Alice&#39;s Resteraunt&lt;/h1&gt;
     &lt;h2&gt;订单列表&lt;/h2&gt;
@@ -973,29 +978,29 @@ function generateOrderList() {
 
         // 初始化界面
         generateOrderList();
-    &lt;/script&gt;</tw-passagedata><tw-passagedata pid="49" name="Daily - Read Book" tags="" position="800,2750" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $wisdom&lt;=15&gt;&gt;Melor认真的盯着书，发出了阿巴阿巴的声音。
+    &lt;/script&gt;</tw-passagedata><tw-passagedata pid="49" name="Daily - Read Book" tags="" position="800,2800" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $wisdom&lt;=15&gt;&gt;Melor认真的盯着书，发出了阿巴阿巴的声音。
 &lt;font color=&quot;#00FF66&quot;&gt;[智慧+1]&lt;/font&gt;&lt;&lt;set $wisdom+=1&gt;&gt;
 &lt;&lt;else&gt;&gt;Melor认真的看书，发出了恍然大悟的声音。
 &lt;font color=&quot;#00FF66&quot;&gt;[智慧+2]&lt;/font&gt;&lt;&lt;set $wisdom+=2&gt;&gt;
 &lt;&lt;endif&gt;&gt;
 [[学习的天才！|Daily - Schedule][$hour+=3]] 
 &lt;&lt;/type&gt;&gt;
-</tw-passagedata><tw-passagedata pid="50" name="Daily - Cooking" tags="" position="950,2750" size="100,100">&lt;&lt;type 30ms&gt;&gt;一场酣畅淋漓的做饭
+</tw-passagedata><tw-passagedata pid="50" name="Daily - Cooking" tags="" position="1000,2800" size="100,100">&lt;&lt;type 30ms&gt;&gt;一场酣畅淋漓的做饭
 &lt;font color=&quot;#00FF66&quot;&gt;[厨艺+1]&lt;/font&gt;&lt;&lt;/type&gt;&gt;&lt;&lt;set $cookingSkill+=1&gt;&gt;
-[[厨艺精进啦！|Daily - Schedule][$hour+=3]] </tw-passagedata><tw-passagedata pid="51" name="Daily - Chat with Melor" tags="" position="2450,1850" size="100,100">&lt;&lt;type 30ms&gt;&gt;
+[[厨艺精进啦！|Daily - Schedule][$hour+=3]] </tw-passagedata><tw-passagedata pid="51" name="Daily - Chat with Melor" tags="done" position="2450,1850" size="100,100">&lt;&lt;type 30ms&gt;&gt;
 &lt;&lt;if $MelorFreindshipLevel==1&gt;&gt;Gabby and Melor discussed many things about the Juice Gang. Melor enjoyed chatting with her.
 &lt;&lt;elseif $MelorFreindshipLevel==2&gt;&gt;Gabby and Melor discussed many things about Alice. Melor spoke passionately.
 &lt;&lt;elseif $MelorFreindshipLevel==3&gt;&gt;Gabby and Melor talked about everything.
 &lt;&lt;endif&gt;&gt;
 &lt;font color=&quot;#00FF66&quot;&gt;[Melor Friendship+1]&lt;/font&gt;
 &lt;&lt;set $MelorFreindship=$MelorFreindship+1&gt;&gt;
-[[The day with Melor is enjoyable!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="Daily - Chat with Alice" tags="" position="2300,1850" size="100,100">&lt;&lt;type 30ms&gt;&gt; &lt;&lt;if $AliceFreindshipLevel==1&gt;&gt;Gabby and Alice shared recent events and discussed the details of their revenge plan.&lt;&lt;set $RevengePassion=$RevengePassion+1&gt;&gt;
+[[The day with Melor is enjoyable!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="52" name="Daily - Chat with Alice" tags="done" position="2300,1850" size="100,100">&lt;&lt;type 30ms&gt;&gt; &lt;&lt;if $AliceFreindshipLevel==1&gt;&gt;Gabby and Alice shared recent events and discussed the details of their revenge plan.&lt;&lt;set $RevengePassion=$RevengePassion+1&gt;&gt;
 &lt;&lt;elseif $AliceFreindshipLevel==2&gt;&gt;Gabby tried not to look at Alice&#39;s pecked head, but eventually couldn&#39;t help laughing out loud.
 &lt;&lt;elseif $AliceFreindshipLevel==3&gt;&gt;Alice listened attentively as Gabby spoke enthusiastically.
 &lt;&lt;endif&gt;&gt;
 &lt;font color=&quot;#00FF66&quot;&gt;[Alice Friendship+1]&lt;/font&gt;
 &lt;&lt;set $AliceFreindship=$AliceFreindship+1&gt;&gt;
-[[The day with Alice is enjoyable!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="Daily - Buy material" tags="" position="625,2775" size="100,100">&lt;center&gt;&lt;img src = &quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-L.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
+[[The day with Alice is enjoyable!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="53" name="Daily - Buy material" tags="" position="600,2800" size="100,100">&lt;center&gt;&lt;img src = &quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Alice-L.png&quot; width=&quot;250px&quot;&gt;&lt;/center&gt;
 &lt;h2&gt;欢迎选购商品喵&lt;/h2&gt;&lt;hr&gt;
 &lt;strong&gt;Apple&lt;/strong&gt;
 价格: $5
@@ -1095,7 +1100,7 @@ function checkout() {
             }
     }
 &lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="54" name="Daily - Neighborhood East" tags="" position="1900,1900" size="100,100">&lt;&lt;set $day=15&gt;&gt;
+</tw-passagedata><tw-passagedata pid="54" name="Daily - Neighborhood East" tags="done" position="2000,1900" size="100,100">&lt;&lt;set $day=15&gt;&gt;
 &lt;&lt;if $month==12 &amp;&amp; $day&gt;12 &amp;&amp; $day&lt;=30 &amp;&amp; $LunaAlive==1 &amp;&amp; $LunaFreindshipLevel==0 &gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Gabby is looking for ingredients in the neighborhood.&lt;&lt;/type&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot; &quot;Sing happily.&quot;&gt;&gt;
@@ -1113,7 +1118,7 @@ Gabby stopped singing and perked up her ears, as if she had heard something.
 &lt;&lt;else&gt;&gt;
 You wandered around but found nothing.
 [[Reorganize the plan.|Daily - Schedule]]
-&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Daily - Neighborhood West" tags="" position="1250,2750" size="100,100">你四处逛了逛，什么也没有
+&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="55" name="Daily - Neighborhood West" tags="" position="1000,2600" size="100,100">你四处逛了逛，什么也没有
 
 [[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="56" name="Daily - Neighborhood South" tags="" position="1550,2300" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $researchLevel==0&gt;&gt;
 Gabby discovered a peculiar box. She was drawn to this mysterious box. She tried to push the box, but it didn&#39;t move.
@@ -1158,7 +1163,7 @@ What should Gabby do：
 	Gabby睡觉了。
 	[[开始新的一天|Daily - Schedule][$hour=9]]
  &lt;&lt;endif&gt;&gt;
-</tw-passagedata><tw-passagedata pid="58" name="Internship - 03 test" tags="" position="650,700" size="100,100">&lt;&lt;if $cookingSkill &gt;= 6&gt;&gt;
+</tw-passagedata><tw-passagedata pid="58" name="Internship - 03 test" tags="done" position="650,700" size="100,100">&lt;&lt;if $cookingSkill &gt;= 6&gt;&gt;
 	&lt;&lt;if $cookingSkill &gt;= 6 &amp;&amp; $cookingSkill &lt;10 &gt;&gt;
 	&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
 	&lt;&lt;type 30ms&gt;&gt;Your skills are good, and you&#39;re quite ambitious. The customers have given you great reviews. Starting today, you&#39;re a full-time employee. Keep up the good work! Let&#39;s earn money and seek revenge soon.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
@@ -1171,14 +1176,14 @@ What should Gabby do：
 [[Starting a new day.|Daily - Schedule][$day+=1][$hour=9]]&lt;&lt;/type&gt;&gt;
 &lt;&lt;elseif  $cookingSkill &lt;= 6 &amp;&amp; $AliceFreindshipLevel&lt;=1&gt;&gt;
 	[[Beginning cooking test.|Internship - End A]]
-&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Internship - End A" tags="" position="800,700" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;Entering the End: Is your target for revenge me? &lt;/font&gt;&lt;&lt;/type&gt;&gt;
+&lt;&lt;endif&gt;&gt;</tw-passagedata><tw-passagedata pid="59" name="Internship - End A" tags="done" position="800,700" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;Entering the End: Is your target for revenge me? &lt;/font&gt;&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 2s&gt;&gt;
 &lt;&lt;speech &quot;Alice&quot; &quot;[Choked on the awful food, turning blue in the face.]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;I&#39;ve never seen such an unambitious cat! 
 You, you&#39;re fired, right now. Pack up and get out!&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;After angering Alice and getting fired, Gabby couldn&#39;t stay in Whiskerville anymore. She left for an unknown place to start her new story, but that&#39;s not what this story is about.&lt;hr&gt;
 &lt;font color=&quot;#CC3333&quot;&gt;END&lt;/font&gt;&lt;&lt;/type&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Daily - Research Chest" tags="" position="2200,2400" size="100,100">&lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Map/Box.png&quot; width=&quot;500px&quot;&gt;&lt;/center&gt;
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="60" name="Daily - Research Chest" tags="done" position="2200,2400" size="100,100">&lt;center&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Map/Box.png&quot; width=&quot;500px&quot;&gt;&lt;/center&gt;
 &lt;&lt;type 30ms&gt;&gt;
 &lt;&lt;if $researchLevel==1 &amp;&amp; $wisdom&gt;=5&gt;&gt;Oh, Gabby is truly a genius! The smartest cat in the world!
 Gabby understood that the first sacrifice is &quot;Meat of Magic Bird&quot;&lt;&lt;set $researchLevel=2&gt;&gt;
@@ -1192,7 +1197,7 @@ Gabby understood that the incantation to open the box is &quot;Cats eat like pig
 Gabby thought carefully, but aside from getting a headache, she gained nothing.
 &lt;&lt;endif&gt;&gt;
 [[Researching done！|Daily - Schedule][$hour+=3]] 
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Alice-FS1 - 01 Start" tags="" position="900,100" size="100,100">&lt;&lt;type 30ms&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="61" name="Alice-FS1 - 01 Start" tags="done" position="900,100" size="100,100">&lt;&lt;type 30ms&gt;&gt;
 A rapid knocking outside, Gabby was still sleeping in bed. She grumbled as she got out of bed and opened the door.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 4.5s&gt;&gt;&lt;&lt;linkreplace &quot;Who is it?&quot;&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot; &quot;[Extremely resentful.]&quot;&gt;&gt;
@@ -1207,8 +1212,8 @@ Have you found that damn box to the south? It&#39;s related to magic. I know the
 [[I am not available today, come back in 2 days.|Alice-FS1 - 02.2 later]]
 [[No, no,no.|Alice-FS1 - END]]&lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Alice-FS1 - 01.1 Start2" tags="" position="1050,250" size="100,100">&lt;&lt;type 30ms&gt;&gt;A new day, and Alice came to find Gabby early in the morning.
-[[Let&#39;s go.|Alice-FS1 - 02.1 Catch Bird]]&lt;&lt;/type&gt;&gt; </tw-passagedata><tw-passagedata pid="63" name="Alice-FS1 - 02.1 Catch Bird" tags="" position="900,400" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="62" name="Alice-FS1 - 01.1 Start2" tags="done" position="1050,250" size="100,100">&lt;&lt;type 30ms&gt;&gt;A new day, and Alice came to find Gabby early in the morning.
+[[Let&#39;s go.|Alice-FS1 - 02.1 Catch Bird]]&lt;&lt;/type&gt;&gt; </tw-passagedata><tw-passagedata pid="63" name="Alice-FS1 - 02.1 Catch Bird" tags="done" position="900,400" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Thank you, let&#39;s go.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Alice and Gabby climbed the mountain together. After crossing over a hill, Alice stopped.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 5s&gt;&gt;&lt;&lt;linkreplace &quot;Are we there?&quot;&gt;&gt;
@@ -1229,18 +1234,18 @@ Have you found that damn box to the south? It&#39;s related to magic. I know the
 &lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="Alice-FS1 - 02.2 later" tags="" position="1050,400" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="64" name="Alice-FS1 - 02.2 later" tags="done" position="1050,400" size="100,100">&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;I already have plans for today. Let&#39;s do it in two days. I&#39;ll prepare and then go with you.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;timed 5s&gt;&gt;&lt;&lt;linkreplace &quot;See you in two days.&quot;&gt;&gt;
 &lt;&lt;speech &quot;Alice&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Okay, see you in two days.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;&lt;&lt;set $FS1waitDay=2&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;
-[[Let&#39;s start today&#39;s schedule.|Daily - Schedule]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Alice-FS1 - END" tags="" position="1050,100" size="100,100">&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
+[[Let&#39;s start today&#39;s schedule.|Daily - Schedule]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="65" name="Alice-FS1 - END" tags="done" position="1050,100" size="100,100">&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Not going? Alright. I come find you specially.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;
 Alice left.&lt;&lt;$AliceEnd=1&gt;&gt;
 [[Let&#39;s start today&#39;s schedule.|Daily - Schedule]] 
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Alice-FS1 - 02.1 SUCESS" tags="" position="900,550" size="100,100">&lt;&lt;type 30ms&gt;&gt;That magic bird is not easy to mess with. It instantly sensed the attack and was about to fly up with a flap of its wing.&lt;&lt;/type&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="66" name="Alice-FS1 - 02.1 SUCESS" tags="done" position="900,550" size="100,100">&lt;&lt;type 30ms&gt;&gt;That magic bird is not easy to mess with. It instantly sensed the attack and was about to fly up with a flap of its wing.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 4s&gt;&gt;&lt;&lt;linkreplace &quot;Grab its leg!&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Gabby firmly grabbed the magic bird&#39;s leg. Under Gabby&#39;s superior weight, the magic bird couldn&#39;t fly at all.&lt;&lt;/type&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Alice bared her sharp teeth and bit off the magic bird&#39;s neck in one bite.&lt;&lt;/type&gt;&gt;
@@ -1254,7 +1259,7 @@ Relationship with Alice has deepened.
 &lt;&lt;set $AliceFreindshipLevel=2&gt;&gt;&lt;&lt;set $AliceFreindship+=3&gt;&gt;
 [[Go home!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="Alice-FS1 - 02.1 fail to catch" tags="" position="1050,550" size="100,100">&lt;&lt;type 30ms&gt;&gt;That magic bird is not easy to mess with. It instantly sensed the attack and was about to fly up with a flap of its wing.&lt;&lt;/type&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="67" name="Alice-FS1 - 02.1 fail to catch" tags="done" position="1050,550" size="100,100">&lt;&lt;type 30ms&gt;&gt;That magic bird is not easy to mess with. It instantly sensed the attack and was about to fly up with a flap of its wing.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 4s&gt;&gt;&lt;&lt;linkreplace &quot;Bite it!&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Gabby missed.
 The magic bird flew away.&lt;&lt;/type&gt;&gt;
@@ -1266,15 +1271,15 @@ Relationship with Alice has deepened.
 &lt;&lt;set $AliceFreindshipLevel=2&gt;&gt;&lt;&lt;set $giveBird=1&gt;&gt;
 [[Go home!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="Melor-FS1 - 01 Start" tags="" position="500,900" size="100,100">&lt;&lt;speech &quot;Melor&quot;&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="68" name="Melor-FS1 - 01 Start" tags="done" position="500,900" size="100,100">&lt;&lt;speech &quot;Melor&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Gabby! Do you have any leftover ingredients? Can you make me something to eat?&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 40ms&gt;&gt;
 [[Of course, no problem at all.|Melor_FS1_02.1 cooking]]
-[[Sorry, I&#39;m off work now.|Melor_FS1_02.2 no!]]&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="Melor_FS1_02.1 cooking" tags="" position="500,1050" size="100,100">&lt;&lt;speech &quot;Melor&quot; Picked up the food.&gt;&gt;
+[[Sorry, I&#39;m off work now.|Melor_FS1_02.2 no!]]&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="69" name="Melor_FS1_02.1 cooking" tags="done" position="500,1050" size="100,100">&lt;&lt;speech &quot;Melor&quot; Picked up the food.&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Thank you so much! Gabby! Can you accompany me to a place tomorrow morning?&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 40ms&gt;&gt;
 [[Sure, sure.|Melor_FS1_03.1 Agree][$day+=1]]
-[[Ah, working is so tiring. I&#39;m going home to rest!|Melor_FS1_END]]&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="Melor_FS1_03.1 Agree" tags="" position="500,1200" size="100,100">&lt;&lt;set $hour=9&gt;&gt;
+[[Ah, working is so tiring. I&#39;m going home to rest!|Melor_FS1_END]]&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="70" name="Melor_FS1_03.1 Agree" tags="done" position="500,1200" size="100,100">&lt;&lt;set $hour=9&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Early in the morning, Melor set off with Gabby. Following Melor through the streets and alleys, Gabby discovered a new place in Whiskerville she didn&#39;t know existed.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 5.5s&gt;&gt;&lt;&lt;linkreplace &quot;Where are you going?&quot;&gt;&gt;
 &lt;&lt;speech &quot;Melor&quot;&gt;&gt;
@@ -1294,23 +1299,23 @@ Look, they really like you.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="Melor_FS1_END" tags="" position="650,1200" size="100,100">&lt;&lt;type 30ms&gt;&gt;Melor left sadly.
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="71" name="Melor_FS1_END" tags="done" position="650,1200" size="100,100">&lt;&lt;type 30ms&gt;&gt;Melor left sadly.
 [[Off work right now!!|Daily - End the Day][$MelorEnd=1]] 
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="72" name="Melor_FS1_04.1 pet cat" tags="" position="650,1350" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby petted each kitten.&lt;&lt;/type&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="72" name="Melor_FS1_04.1 pet cat" tags="done" position="650,1350" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby petted each kitten.&lt;&lt;/type&gt;&gt;
 &lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Hehehe, little kittens~~&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Relationship with Melor has deepened.
 &lt;&lt;set $MelorFreindshipLevel=2&gt;&gt;
 [[Full of energy, let&#39;s go home and get some work done!|Daily - Schedule][$hour+=3]]
 &lt;&lt;/type&gt;&gt;
-</tw-passagedata><tw-passagedata pid="73" name="Melor_FS1_END 2" tags="" position="800,1200" size="100,100">&lt;&lt;type 30ms&gt;&gt;Melor was surprised and took you away with an excuse.
+</tw-passagedata><tw-passagedata pid="73" name="Melor_FS1_END 2" tags="done" position="800,1200" size="100,100">&lt;&lt;type 30ms&gt;&gt;Melor was surprised and took you away with an excuse.
 [[Go back to work!|Daily - End the Day][$MelorEnd=1]] 
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="74" name="Melor_FS1_04.2 feed cat" tags="" position="500,1350" size="100,100">&lt;&lt;type 30ms&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="74" name="Melor_FS1_04.2 feed cat" tags="done" position="500,1350" size="100,100">&lt;&lt;type 30ms&gt;&gt;
 Gabby made lots of jelly with the ingredients she brought. The kittens happily spun around Gabby after eating the jelly. Melor, Gabby, and the kittens had a fun morning together.
 &lt;&lt;set $MelorFreindshipLevel=2&gt;&gt;&lt;&lt;set $MelorFreindship+=3&gt;&gt;
 [[Full of energy, let&#39;s go home and get some work done!|Daily - Schedule][$hour+=3]]
 &lt;&lt;/type&gt;&gt;
-</tw-passagedata><tw-passagedata pid="75" name="Melor_FS1_02.2 no!" tags="" position="650,1050" size="100,100">&lt;&lt;speech &quot;Melor&quot;&gt;&gt;
+</tw-passagedata><tw-passagedata pid="75" name="Melor_FS1_02.2 no!" tags="done" position="650,1050" size="100,100">&lt;&lt;speech &quot;Melor&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Please, is it really impossible...?&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;
 [[Alright, I&#39;ll make it for you.|Melor_FS1_02.1 cooking]]
@@ -1370,7 +1375,7 @@ Gabby根本不想回去复仇，给猫猫们做饭赚钱它不开心吗！只是
 &lt;&lt;type 30ms&gt;&gt;
 啊。。。没有复仇了么？
 &lt;&lt;/type&gt;&gt;
-&lt;&lt;/speech&gt;&gt;</tw-passagedata><tw-passagedata pid="77" name="saveLuna_02.1 heard" tags="" position="2300,2200" size="100,100">&lt;&lt;set $LunaFreindshipLevel==1&gt;&gt;
+&lt;&lt;/speech&gt;&gt;</tw-passagedata><tw-passagedata pid="77" name="saveLuna_02.1 heard" tags="done" position="2300,2200" size="100,100">&lt;&lt;set $LunaFreindshipLevel==1&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Gabby slowly walked towards the direction of the sound, and as she got closer, the sound became clearer.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 4s&gt;&gt;&lt;&lt;linkreplace &quot;It&#39;s not a ghost, is it?&quot;&gt;&gt;
 &lt;&lt;speech &quot;Luna&quot;&gt;&gt;
@@ -1417,10 +1422,10 @@ Gabby根本不想回去复仇，给猫猫们做饭赚钱它不开心吗！只是
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="saveLuna_02.2 miss" tags="" position="2425,2200" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gathered some apples.&lt;&lt;/type&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="saveLuna_02.2 miss" tags="done" position="2425,2200" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gathered some apples.&lt;&lt;/type&gt;&gt;
 &lt;&lt;getItem &quot;Apple&quot;&gt;&gt;5&lt;&lt;/getItem&gt;&gt;
 &lt;&lt;set $LunaAlive=0&gt;&gt;
-[[Go home.|Daily - Schedule][$hour+=3]]</tw-passagedata><tw-passagedata pid="79" name="safetypermit_01 Start" tags="" position="1300,100" size="100,100">&lt;&lt;speech &quot;Gabby&quot;Satisfied.&gt;&gt;
+[[Go home.|Daily - Schedule][$hour+=3]]</tw-passagedata><tw-passagedata pid="79" name="safetypermit_01 Start" tags="done" position="1300,100" size="100,100">&lt;&lt;speech &quot;Gabby&quot;Satisfied.&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;As Luna said, there are indeed many customers coming. With so many customers, will I become rich soon?&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Suddenly, there was a commotion in the crowd. A black and white cat police chief appeared at the door of the cafeteria.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 7s&gt;&gt;&lt;&lt;linkreplace &quot;Hello Officer!&quot;&gt;&gt;
@@ -1436,32 +1441,32 @@ Gabby根本不想回去复仇，给猫猫们做饭赚钱它不开心吗！只是
 [[Call Alice! Hurry!|safetypermit_02.2 Alice!]]&lt;&lt;/type&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-</tw-passagedata><tw-passagedata pid="80" name="safetypermit - Ending" tags="" position="1300,400" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;Entering End: Being in prison is not such a bad life, with food and drink. &lt;/font&gt;&lt;&lt;/type&gt;&gt;
+</tw-passagedata><tw-passagedata pid="80" name="safetypermit - Ending" tags="done" position="1300,400" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;font color=&quot;#CC3333&quot;&gt;Entering End: Being in prison is not such a bad life, with food and drink. &lt;/font&gt;&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 2s&gt;&gt;
 &lt;&lt;speech &quot;Morgan&quot; &quot;[Shaking head in resignation.]&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;I have no choice either.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Gabby was sentenced to three years in prison for endangering public health through dangerous business practices. From then on, Gabby lived a life of relative comfort with access to food and drink.&lt;hr&gt;
 &lt;font color=&quot;#CC3333&quot;&gt;END&lt;/font&gt;&lt;&lt;/type&gt;&gt;
-&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="81" name="safetypermit - 04.1Test1" tags="" position="1450,525" size="100,100">&lt;&lt;set $score=0&gt;&gt;&lt;&lt;type 30ms&gt;&gt;In the morning, Gabby was escorted to the testing room and handed a test paper.
+&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="81" name="safetypermit - 04.1Test1" tags="done" position="1450,525" size="100,100">&lt;&lt;set $score=0&gt;&gt;&lt;&lt;type 30ms&gt;&gt;In the morning, Gabby was escorted to the testing room and handed a test paper.
 &lt;&lt;linkreplace &quot;Look at the first question.&quot;&gt;&gt;
 	The first question: How to prevent cat hair from falling into food?
     [[No big deal.|safetypermit - 04.1Test2]]
     [[Shave the cook!|safetypermit - 04.1Test2]]
     [[Wear chef&#39;s clothes and hat.|safetypermit - 04.1Test2][$score+=1]]
  &lt;&lt;/linkreplace&gt;&gt;
-    &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="safetypermit - 04.1Test2" tags="" position="1450,650" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;linkreplace &quot;Look at the second question.&quot;&gt;&gt;
+    &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="82" name="safetypermit - 04.1Test2" tags="done" position="1450,650" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;linkreplace &quot;Look at the second question.&quot;&gt;&gt;
 	The second question: How to handle customer complaints?
     [[This is slander! It&#39;s a lie!|safetypermit - 04.1Test3]]
     [[It&#39;s all done by part-time workers!!!|safetypermit - 04.1Test3]]
     [[Find evidence and assign blame correctly.|safetypermit - 04.1Test3][$score+=1]]
  &lt;&lt;/linkreplace&gt;&gt;
-    &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="safetypermit - 04.1Test3" tags="" position="1600,525" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;linkreplace &quot;Look at the third question.&quot;&gt;&gt;
+    &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="83" name="safetypermit - 04.1Test3" tags="done" position="1600,525" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;linkreplace &quot;Look at the third question.&quot;&gt;&gt;
 	The third question: How to ensure the healthiness of food sources?
     [[Alice will harm me?!|safetypermit - 05.1 TestEnd]]
     [[My eyes are the quality inspectors. If I say it&#39;s safe, it&#39;s safe.|safetypermit - 05.1 TestEnd]]
     [[Purchase from licensed vendors.|safetypermit - 05.1 TestEnd][$score+=1]]
  &lt;&lt;/linkreplace&gt;&gt;
-    &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="safetypermit - 05.1 TestEnd" tags="" position="1600,650" size="100,100">&lt;&lt;type 30ms&gt;&gt;
+    &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="84" name="safetypermit - 05.1 TestEnd" tags="done" position="1600,650" size="100,100">&lt;&lt;type 30ms&gt;&gt;
 The result is:
 &lt;&lt;if $score&gt;=2&gt;&gt;
 Pass!!!&lt;&lt;set $license=1&gt;&gt;
@@ -1469,12 +1474,12 @@ Pass!!!&lt;&lt;set $license=1&gt;&gt;
 [[Let&#39;s go home! |Daily - Schedule]] 
 &lt;&lt;else&gt;&gt;
 Not pass.
-[[Damn.|Daily - 06.1 No Pass]] 
+[[Damn.|safetyper - 06.1 No Pass]] 
 &lt;&lt;endif&gt;&gt;
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="Daily - 06.1 No Pass" tags="" position="1600,775" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby did not pass the test and did not receive the Safety Permit. Morgan did not say anything, but according to regulations, permanently revoked Gabby&#39;s right to operate in Kitty Haven Park.
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="85" name="safetyper - 06.1 No Pass" tags="done" position="1600,775" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby did not pass the test and did not receive the Safety Permit. Morgan did not say anything, but according to regulations, permanently revoked Gabby&#39;s right to operate in Kitty Haven Park.
 [[Go home.|Daily - Schedule]] 
-&lt;&lt;set $hasTest=1&gt;&gt;
-&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="safetypermit_03.2.1 Peace" tags="" position="1600,400" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby trembles as she hides under the counter, while the two continue their fight from inside the shop to the outside.&lt;&lt;/type&gt;&gt;
+&lt;&lt;set $hasTest=1&gt;&gt;&lt;&lt;set $license=-1&gt;&gt;
+&lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="86" name="safetypermit_03.2.1 Peace" tags="done" position="1600,400" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby trembles as she hides under the counter, while the two continue their fight from inside the shop to the outside.&lt;&lt;/type&gt;&gt;
 &lt;&lt;timed 3s&gt;&gt;&lt;&lt;linkreplace &quot;10 minutes later.&quot;&gt;&gt; 
 Alice returns from outside.
 &lt;&lt;speech &quot;Gabby&quot; &gt;&gt;
@@ -1483,7 +1488,7 @@ Alice returns from outside.
 &lt;&lt;type 30ms&gt;&gt;You, go take the safety permit test in the morning! You dare to come here and open a shop without any permit behind my back! If I hadn&#39;t come today, you would be ready to spend the rest of your life in jail.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Disheveled and angry, Alice stormed off.
 [[Go home and sleep!|safetypermit - 04.1Test1]] &lt;&lt;/type&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="Alice_FS2_02.2 fight!now!" tags="" position="1300,1000" size="100,100">&lt;&lt;speech &quot;Gabby&quot; &gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="87" name="Alice_FS2_02.2 fight!now!" tags="done" position="1300,1000" size="100,100">&lt;&lt;speech &quot;Gabby&quot; &gt;&gt;
 &lt;&lt;type 30ms&gt;Hurry! Where to? I can&#39;t wait! What do we need to prepare?&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;speech &quot;Alice&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;No need, let&#39;s go.&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
@@ -1506,16 +1511,16 @@ Alice returns from outside.
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
-&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="Alice_FS2_01 Invite" tags="" position="1450,1000" size="100,100">&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="88" name="Alice_FS2_01 Invite" tags="done" position="1450,1000" size="100,100">&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;Do you have time? Shall we go fight together?&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 40ms&gt;&gt;
 [[Fight? Who? Me? I&#39;m not going!|Alice_FS2_02.1 no fighting]]
 [[Fight? Where? Let me go!|Alice_FS2_02.2 fight!now!]]&lt;&lt;/type&gt;&gt;
-</tw-passagedata><tw-passagedata pid="89" name="Alice_FS2_02.1 no fighting" tags="" position="1450,1125" size="100,100">&lt;&lt;speech &quot;Alice&quot;sigh.&gt;&gt;
+</tw-passagedata><tw-passagedata pid="89" name="Alice_FS2_02.1 no fighting" tags="done" position="1450,1125" size="100,100">&lt;&lt;speech &quot;Alice&quot;sigh.&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;It is ok. If you want to join in, let me know.&lt;&lt;/type&gt;&gt;
 &lt;&lt;/speech&gt;&gt;
 &lt;&lt;set $waitToFight==1&gt;&gt;
-&lt;&lt;type 30ms&gt;&gt;[[Go home and sleep.|Daily - Schedule][$hour=9]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Alice_FS2_03 Cook" tags="" position="1300,1125" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby presented the four dishes and soup her made herself!&lt;&lt;/type&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;[[Go home and sleep.|Daily - Schedule][$hour=9]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="90" name="Alice_FS2_03 Cook" tags="done" position="1300,1125" size="100,100">&lt;&lt;type 30ms&gt;&gt;Gabby presented the four dishes and soup her made herself!&lt;&lt;/type&gt;&gt;
 &lt;&lt;if $cookingSkill&lt;30&gt;&gt;
 &lt;&lt;speech &quot;AlicesFather&quot;&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;yue——
@@ -1549,28 +1554,28 @@ Gabby要做什么：
 &lt;&lt;if $LunaFreindshipLevel&gt;=1&gt;&gt;[[和Luna聊天|Daily - Chat with Luna]]&lt;&lt;endif&gt;&gt;
 [[去玩滑滑梯|Daily - Park Slide]]
 [[去警察局|Daily - Office]]
-[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="92" name="Daily - Chat with Luna" tags="" position="2450,1700" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $LunaFreindshipLevel==1&gt;&gt;Gabby bumped into Luna, who was wandering around, and they took a stroll together.
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="92" name="Daily - Chat with Luna" tags="done" position="2450,1700" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $LunaFreindshipLevel==1&gt;&gt;Gabby bumped into Luna, who was wandering around, and they took a stroll together.
 &lt;&lt;elseif $LunaFreindshipLeve==2&gt;&gt;Luna invited Gabby to go on an adventure in the mountains.
 &lt;font color=&quot;#00FF66&quot;&gt;[Acquired 5 pieces of meat.]&lt;/font&gt; &lt;&lt;getItem &quot;Meat&quot;&gt;&gt;1&lt;&lt;/getItem&gt;&gt;
 &lt;&lt;elseif $LunaFreindshipLeve==3&gt;&gt;Luna and Gabby plan to go sailing together.&lt;&lt;set $RevengePassion -= 1&gt;&gt;&lt;&lt;endif&gt;&gt;
 &lt;font color=&quot;#00FF66&quot;&gt;[Luna Friendship+1]&lt;/font&gt;
 &lt;&lt;set $LunaFreindship += 1&gt;&gt;
-[[The day with Luna is enjoyable!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="Daily - Park Slide" tags="" position="1700,1525" size="100,100">&lt;&lt;type 30ms&gt;&gt; Gabby度过愉快的一段时间。世界都变得美好了。
+[[The day with Luna is enjoyable!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="93" name="Daily - Park Slide" tags="" position="1700,1550" size="100,100">&lt;&lt;type 30ms&gt;&gt; Gabby度过愉快的一段时间。世界都变得美好了。
 &lt;&lt;set $RevengePassion-=1&gt;&gt;
-[[玩好啦|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="Daily - Office" tags="" position="1825,1525" size="100,100">Gabby来到了警察局。
+[[玩好啦|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="94" name="Daily - Office" tags="" position="1900,1400" size="100,100">Gabby来到了警察局。
 Gabby要做什么：
 
 &lt;&lt;if $MoganFreindshipLevel&gt;=1&gt;&gt;[[和Morgan聊天|Daily - Chat with Morgan]]&lt;&lt;endif&gt;&gt;
 [[参加法律教育|Daily - Learn Law]]
-[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="95" name="Daily - Chat with Morgan" tags="" position="2300,1700" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $MorganFreindshipLevel==1&gt;&gt;Even though Morgan was busy, she didn&#39;t mind chatting with Gabby for a moment.
+[[重新规划|Daily - Schedule]]</tw-passagedata><tw-passagedata pid="95" name="Daily - Chat with Morgan" tags="done" position="2300,1700" size="100,100">&lt;&lt;type 30ms&gt;&gt;&lt;&lt;if $MorganFreindshipLevel==1&gt;&gt;Even though Morgan was busy, she didn&#39;t mind chatting with Gabby for a moment.
 &lt;&lt;elseif $MorganFreindshipLevel==2&gt;&gt;Morgan took Gabby out for a patrol.
 &lt;&lt;elseif $MorganFreindshipLevel==3&gt;&gt;Morgan persistently asked Gabby if she was willing to join the police station.&lt;&lt;endif&gt;&gt;
 &lt;font color=&quot;#00FF66&quot;&gt;[Morgan Friendship+1]&lt;/font&gt;
 &lt;&lt;set $MorganFreindship += 1&gt;&gt;
-[[The day with Morgan is enjoyable!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="96" name="Daily - Learn Law" tags="" position="1825,1675" size="100,100">&lt;&lt;type 30ms&gt;&gt; Gabby进行了认真的法律学习。
+[[The day with Morgan is enjoyable!|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="96" name="Daily - Learn Law" tags="" position="1900,1550" size="100,100">&lt;&lt;type 30ms&gt;&gt; Gabby进行了认真的法律学习。
 &lt;font color=&quot;#00FF66&quot;&gt;[Morgan好感+1]&lt;/font&gt;
 &lt;&lt;set $MorgamFreindship += 1&gt;&gt;&lt;&lt;set $RevengePassion -= 1&gt;&gt;
-[[做一只遵纪守法的好猫！|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="Melor_FS1_02.1 ok" tags="" position="4200,825" size="100,100"></tw-passagedata><tw-passagedata pid="98" name="Melor_FS1_02.3 gohome" tags="" position="4075,825" size="100,100"></tw-passagedata><tw-passagedata pid="99" name="Melor_FS1_02.2 happy" tags="" position="4325,825" size="100,100"></tw-passagedata><tw-passagedata pid="100" name="Daily - Open Chest" tags="" position="2050,2400" size="100,100">&lt;&lt;checkItem &quot;Meat of Magic Bird&quot;&gt;&gt;
+[[做一只遵纪守法的好猫！|Daily - Schedule][$hour+=3]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="Melor_FS1_02.1 ok" tags="" position="4225,900" size="100,100"></tw-passagedata><tw-passagedata pid="98" name="Melor_FS1_02.3 gohome" tags="" position="4100,900" size="100,100"></tw-passagedata><tw-passagedata pid="99" name="Melor_FS1_02.2 happy" tags="" position="4350,900" size="100,100"></tw-passagedata><tw-passagedata pid="100" name="Daily - Open Chest" tags="" position="2050,2400" size="100,100">&lt;&lt;checkItem &quot;Meat of Magic Bird&quot;&gt;&gt;
 &lt;&lt;checkItem &quot;Magic Carrot&quot;&gt;&gt;
 &lt;&lt;checkItem &quot;Magic Mushroom&quot;&gt;&gt;[[&quot;Cats eat like pigs.”|Kingdom 01- Into the chest]]
 &lt;&lt;/checkItem&gt;&gt;&lt;&lt;/checkItem&gt;&gt;&lt;&lt;/checkItem&gt;&gt;
