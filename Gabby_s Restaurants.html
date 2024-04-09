@@ -155,6 +155,12 @@ var LZString={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234
 .Morgan .avatar {
 	background-image: url('https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Morgan/Morgan-A.png');
 }
+.AlicesFather {
+	background-color: rgb(43,141,100);
+}
+.AlicesFather .avatar {
+	background-image: url('https://raw.githubusercontent.com/Lozlant/Gabby-s-Avenger/main/Asset/Alice/Father.png');
+}
 
 /* Freindship Background */
 .freindship {
@@ -294,6 +300,10 @@ Macro.add('checkItem', {
 &lt;&lt;set $AliceFreindshipLevel=0&gt;&gt;
 &lt;&lt;set $AliceFreindship=0&gt;&gt;
 &lt;&lt;set $AliceEnd=0&gt;&gt;
+&lt;&lt;set $FS1waitDay=-999&gt;&gt;
+&lt;&lt;set $waitToFight==0&gt;&gt;
+&lt;&lt;set $giveBird=0&gt;&gt;
+&lt;&lt;set $FruitGuang=0&gt;&gt;
 
 &lt;&lt;set $LunaFreindshipLevel=0&gt;&gt;
 &lt;&lt;set $LunaFreindship=0&gt;&gt;
@@ -301,9 +311,6 @@ Macro.add('checkItem', {
 &lt;&lt;set $LunaAlive=1&gt;&gt; 
 
 &lt;&lt;set $MorganFreindshipLevel=0&gt;&gt;
-
-&lt;&lt;set $FS1waitDay=-999&gt;&gt;
-&lt;&lt;set $giveBird=0&gt;&gt;
 
 &lt;&lt;set $license=0&gt;&gt;
 &lt;&lt;set $hasTest=0&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="items" tags="noreturn" position="600,525" size="100,100">[[返回|$return]]
@@ -865,9 +872,8 @@ $sho
 &lt;&lt;endif&gt;&gt;
 &lt;&lt;if $FS1waitDay &gt; 0&gt;&gt; &lt;&lt;set $FS1waitDay -= 1&gt;&gt;
 离和Alice的约定日期还有$FS1waitDay天。
-&lt;&lt;elseif $FS1waitDay == 0&gt;&gt; 
-明天就是和Alice约定的日子。
-&lt;&lt;endif&gt;&gt;
+&lt;&lt;elseif $FS1waitDay == 0&gt;&gt; 明天就是和Alice约定的日子。&lt;&lt;endif&gt;&gt;
+&lt;&lt;if $waitToFight==1&gt;&gt;[[选择出发去和Alice打架|Alice_FS2_02.2 fight!now!][$waitToFight=0]]&lt;&lt;endif&gt;&gt; 
 &lt;&lt;if $giveBird == 1&gt;&gt;
 	Alice给你送来了魔法鸟的鸟肉。
     &lt;font color=&quot;#00FF66&quot;&gt;[获得魔鸟的肉]&lt;/font&gt;&lt;&lt;getItem &quot;魔鸟的肉&quot;&gt;&gt;1&lt;&lt;/getItem&gt;&gt;&lt;&lt;set $giveBird=0&gt;&gt;
@@ -887,6 +893,8 @@ $sho
 	[[开始新的一天|Alice-FS1 - 01.1 Start2][$day+=1]]
 &lt;&lt;elseif $Park==1 &amp;&amp; $license==0 &amp;&amp; $hasTest==0&gt;&gt;
 	[[准备下班|safetypermit_01 Start]]
+&lt;&lt;elseif $AliceFreindshipLevel==2 &amp;&amp; $AliceFreindship&gt;=15 &amp;&amp; $AliceEnd !=1&gt;&gt;
+	[[准备下班|Alice_FS2_01 Invite]]
 &lt;&lt;else&gt;&gt;
 	Gabby睡觉了。
 	[[开始新的一天|Daily - Schedule][$hour=9]]
@@ -1190,6 +1198,65 @@ Alice从外面回来了。
 &lt;&lt;type 30ms&gt;&gt;你，早上去做营业执照的测试！啥证也没有就敢背着我跑来这里开店！我今天没来你就可以准备去大牢里度过余生了。&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
 &lt;&lt;type 30ms&gt;&gt;毛发凌乱的Alice气冲冲的走了。
 [[回家睡觉|safetypermit - 04.1Test1]] &lt;&lt;/type&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="78" name="Alice_FS2_01 Invite" tags="" position="1100,2400" size="100,100">&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;有空不？一起去打架？&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;type 40ms&gt;&gt;
+[[打架？谁？我？不去！|Alice_FS2_02.1 no fighting]]
+[[打架？哪？快让我去！|Alice_FS2_02.2 fight!now!]]&lt;&lt;/type&gt;&gt;
+</tw-passagedata><tw-passagedata pid="79" name="Alice_FS2_03 Cook" tags="" position="1100,2750" size="100,100">&lt;&lt;type 30ms&gt;&gt;你端出了自己做的四菜一汤！&lt;&lt;/type&gt;&gt;
+&lt;&lt;if $cookingSkill&lt;30&gt;&gt;
+&lt;&lt;speech &quot;AlicesFather&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;yue——
+滚！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;speech &quot;AlicesFather&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;滚！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;&lt;&lt;set $FruitGuang=1&gt;&gt;
+&lt;&lt;endif&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;两猫被老头打了出去&lt;&lt;/type&gt;&gt;
+&lt;&lt;timed 5s&gt;&gt;&lt;&lt;linkreplace &quot;好猫不和老猫斗&quot;&gt;&gt;&lt;hr&gt;
+&lt;&lt;speech &quot;Gabby&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;所以我们到底做的好不好吃啊？
+你跟你爸爸有什么矛盾啊？
+他怎么就让我们滚啊？
+你平时也会来找他么？
+我怎么没见他来食堂消费啊？
+以后他来消费要给他打折么？&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;timed 7s&gt;&gt;&lt;&lt;linkreplace &quot;大哥理理我啊&quot;&gt;&gt;
+&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
+&lt;&lt;type 70ms&gt;&gt;不该问的事情少打听！
+滚！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+
+&lt;&lt;type 30ms&gt;&gt;你对Alice的认识加深了！
+[[麻溜地滚回家睡觉|Daily - Schedule][$hour=9]] &lt;&lt;/type&gt;&gt;
+&lt;&lt;set $AliceFreindshipLevel=3&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="80" name="Alice_FS2_02.1 no fighting" tags="" position="975,2575" size="100,100">&lt;&lt;speech &quot;Alice&quot;叹气&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;没有关系，你什么时候想参加了再来找我。&lt;&lt;/type&gt;&gt;
+&lt;&lt;/speech&gt;&gt;
+&lt;&lt;set $waitToFight==1&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;[[回家睡觉|Daily - Schedule][$hour=9]] &lt;&lt;/type&gt;&gt;</tw-passagedata><tw-passagedata pid="81" name="Alice_FS2_02.2 fight!now!" tags="" position="1100,2575" size="100,100">&lt;&lt;speech &quot;Gabby&quot; &quot;跃跃欲试&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;快！哪儿？我迫不及待了！需要准备什么？&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;speech &quot;Alice&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;不需要，走吧。&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;Gabby兴冲冲的和Alice一起出发了&lt;&lt;/type&gt;&gt;
+&lt;&lt;timed 7s&gt;&gt;&lt;&lt;linkreplace &quot;Fighting!&quot;&gt;&gt;
+&lt;&lt;speech &quot;Gabby&quot; 露出了白痴的神色&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;老大？欺负老头啊？&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;timed 2s&gt;&gt;&lt;&lt;linkreplace &quot;这不好吧！&quot;&gt;&gt;
+&lt;&lt;speech &quot;Alice&quot; &quot;没有搭理Gabby&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;老登！我tm来了！老子现在可有钱了，随时可以和你那个全是老弱病残的Juice帮打一架。&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;speech &quot;AlicesFather&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;你是我儿子什么德行我不知道？我不相信！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;speech &quot;Alice&quot; &quot;冷笑一声&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;今天就让老头你打开眼界，Gabby，上！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;timed 7s&gt;&gt;&lt;&lt;linkreplace &quot;啊？真欺负老头啊？&quot;&gt;&gt;
+&lt;&lt;speech &quot;AlicesFather&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;你就是那个厨师长是吧。给我做一顿饭！让我尝尝你的手艺。不然我就派手下给你刷差评！&lt;&lt;/type&gt;&gt;&lt;&lt;/speech&gt;&gt;
+&lt;&lt;timed 5s&gt;&gt;&lt;&lt;linkreplace &quot;啊？！&quot;&gt;&gt;
+&lt;&lt;type 30ms&gt;&gt;Gabby借用了Alice她爹的厨房，[[开始做饭|Alice_FS2_03 Cook]]。&lt;&lt;/type&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
+&lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;
 &lt;&lt;/linkreplace&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
