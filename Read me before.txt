@@ -1,0 +1,7 @@
+All in-game resources are referenced from Github and require an internet connection to play. 
+Otherwise, in-game images will not be displayed.
+
+
+
+
+
